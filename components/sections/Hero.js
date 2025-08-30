@@ -16,6 +16,8 @@ export default function Hero() {
   
   // 背景圖片陣列
   const backgroundImages = [
+    '/images/nail.png',
+    '/images/manicure.png',
     '/images/background (1).png',
     '/images/background (2).png',
     '/images/background (3).png'

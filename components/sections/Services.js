@@ -14,9 +14,21 @@ export default function Services() {
   const { services } = site[language];
   
   return (
-    <section id="services" className="py-8 bg-gray-50 min-h-[50vh] md:min-h-auto">
+    <section id="services" className="py-8 min-h-[50vh] md:min-h-auto relative overflow-hidden">
+      {/* 背景圖片 */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url('/images/nail.background2.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      {/* 背景遮罩層，確保內容清晰可讀 */}
+      <div className="absolute inset-0 bg-white/80 z-0"></div>
       <ScrollTriggerContainer 
-        className="container mx-auto px-4"
+        className="container mx-auto px-4 relative z-10"
         staggerDelay={0.2}
         animationType="fadeUp"
         enableParallax={false}
