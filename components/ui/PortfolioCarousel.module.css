@@ -1,0 +1,79 @@
+.carouselItem {
+  --items: 17;
+  --width: clamp(150px, 30vw, 300px);
+  --height: clamp(200px, 40vw, 400px);
+  --x: calc(var(--active) * 800%);
+  --y: calc(var(--active) * 200%);
+  --rot: calc(var(--active) * 120deg);
+  --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+  overflow: hidden;
+  position: absolute;
+  z-index: var(--zIndex);
+  width: var(--width);
+  height: var(--height);
+  margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+  border-radius: 20px;
+  top: 50%;
+  left: 50%;
+  user-select: none;
+  transform-origin: 0% 100%;
+  box-shadow: 0 10px 50px 10px rgba(0, 0, 0, .5);
+  background: black;
+  pointer-events: all;
+  transform: translate(var(--x), var(--y)) rotate(var(--rot));
+  transition: transform .8s cubic-bezier(0, 0.02, 0, 1);
+}
+
+.carouselBox {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+  opacity: var(--opacity);
+  border-radius: 20px;
+}
+
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+/* 響應式設計 - 平板 */
+@media (max-width: 768px) {
+  .carouselItem {
+    --width: clamp(200px, 45vw, 280px);
+    --height: clamp(250px, 55vw, 350px);
+    border-radius: 15px;
+  }
+  
+  .carouselBox {
+    border-radius: 15px;
+  }
+  
+  .carouselImage {
+    border-radius: 15px;
+  }
+}
+
+/* 響應式設計 - 手機 */
+@media (max-width: 480px) {
+  .carouselItem {
+    --width: clamp(180px, 50vw, 220px);
+    --height: clamp(220px, 60vw, 280px);
+    border-radius: 12px;
+  }
+  
+  .carouselBox {
+    border-radius: 12px;
+  }
+  
+  .carouselImage {
+    border-radius: 12px;
+  }
+}
