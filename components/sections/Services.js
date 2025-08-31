@@ -14,7 +14,7 @@ export default function Services() {
   const { services } = site[language];
   
   return (
-    <section id="services" className="py-8 min-h-[50vh] md:min-h-auto relative overflow-hidden">
+    <section id="services" className="py-16 min-h-screen relative overflow-hidden">
       {/* 背景圖片 */}
       <div 
         className="absolute inset-0 z-0"
@@ -29,10 +29,10 @@ export default function Services() {
       <div className="absolute inset-0 bg-white/80 z-0"></div>
       <ScrollTriggerContainer 
         className="container mx-auto px-4 relative z-10"
-        staggerDelay={0.2}
+        staggerDelay={0.1}
         animationType="fadeUp"
         enableParallax={false}
-        viewportMargin="-20px"
+        viewportMargin="-50px"
       >
         {/* 標題區域 - 優先浮現 */}
         <AnimatedTitle 
@@ -50,7 +50,7 @@ export default function Services() {
         {/* 服務方案網格 - 交錯浮現 */}
         <AnimatedGrid 
           columns={5}
-          staggerDelay={0.15}
+          staggerDelay={0.1}
           itemAnimationType="card"
           className="mb-16"
         >
@@ -59,6 +59,7 @@ export default function Services() {
               key={index} 
               customDelay={index * 0.1}
               hoverEffect={true}
+              animationType="card"
               className="min-h-[200px] flex flex-col justify-center text-center"
             >
               <h3 className="text-lg font-bold text-gray-900 mb-2 font-display">

@@ -107,153 +107,84 @@ body {
   transform: scale(1.2);
 }
 
-/* 基礎極光效果 - 提取共同樣式 */
-.aurora-base {
-  position: relative;
-  color: white;
-  overflow: hidden;
-  border: none;
-}
-
-.aurora-base::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: 250% 250%;
-  animation: aurora 8s ease infinite;
-  transition: opacity 0.5s ease;
-  opacity: 0.8;
-  z-index: 1;
-}
-
-.aurora-base:hover::before {
-  opacity: 1;
-  animation-duration: 4s;
-}
-
-.aurora-base > * {
-  position: relative;
-  z-index: 10;
-}
-
-/* 主要極光背景 */
-.aurora-background {
-  @apply aurora-base;
-  background: #876D5A;
-}
-
-.aurora-background::before {
-  background: linear-gradient(
-    115deg,
-    transparent 20%,
-    rgba(255, 202, 153, 0.6) 45%, /* 溫暖的橙色 */
-    rgba(224, 195, 169, 0.5) 55%, /* 網站主色調 */
-    transparent 80%
-  );
-}
-
-/* Line 綠色極光漸層 */
-.aurora-line {
-  @apply aurora-base;
-  background: #00C300; /* 更接近 Line 官方綠色 */
-}
-
-.aurora-line::before {
-  background: linear-gradient(
-    115deg,
-    transparent 20%,
-    rgba(0, 195, 0, 0.6) 45%, /* Line 官方綠色 */
-    rgba(76, 217, 100, 0.5) 55%, /* 較亮的綠色 */
-    transparent 80%
-  );
-}
-
-.aurora-line > * {
-  color: white !important; /* 強制文字顏色為白色 */
-  font-weight: 600; /* 增加字重 */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* 添加文字陰影 */
-}
-
-/* Instagram 漸層極光效果 */
-.aurora-instagram {
-  @apply aurora-base;
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-}
-
-.aurora-instagram::before {
-  background: linear-gradient(
-    115deg,
-    transparent 20%,
-    rgba(220, 39, 67, 0.6) 45%, /* Instagram 官方紅色 */
-    rgba(188, 24, 136, 0.5) 55%, /* Instagram 官方紫色 */
-    transparent 80%
-  );
-}
-
-.aurora-instagram > * {
-  color: white !important; /* 強制文字顏色為白色 */
-  font-weight: 600; /* 增加字重 */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* 添加文字陰影 */
-}
-
-@keyframes aurora {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* 為不同按鈕變體添加極光效果 */
+/* 基本按鈕樣式 - 移除所有動畫效果 */
 .aurora-primary {
-  @apply aurora-background;
+  background: #876D5A;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.aurora-primary:hover {
+  background: #6D3B07;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .aurora-secondary {
-  @apply aurora-background;
   background: #6D3B07;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.aurora-secondary:hover {
+  background: #5a2f05;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .aurora-outline {
-  @apply aurora-background;
   background: transparent;
+  color: #876D5A;
   border: 2px solid #876D5A;
+  transition: all 0.3s ease;
 }
 
-.aurora-outline::before {
-  background: linear-gradient(
-    115deg,
-    transparent 20%,
-    rgba(255, 202, 153, 0.6) 45%, /* 與 aurora-background 一致 */
-    rgba(224, 195, 169, 0.5) 55%, /* 與 aurora-background 一致 */
-    transparent 80%
-  );
-}
-
-.aurora-outline > * {
-  color: #876D5A !important; /* 使用邊框顏色作為文字顏色 */
-  font-weight: 600;
-  text-shadow: none; /* 移除文字陰影 */
+.aurora-outline:hover {
+  background: #876D5A;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .aurora-ghost {
-  @apply aurora-background;
   background: transparent;
+  color: #876D5A;
+  border: none;
+  transition: all 0.3s ease;
 }
 
-.aurora-ghost::before {
-  background: linear-gradient(
-    115deg,
-    transparent 20%,
-    rgba(255, 202, 153, 0.6) 45%, /* 與 aurora-background 一致 */
-    rgba(224, 195, 169, 0.5) 55%, /* 與 aurora-background 一致 */
-    transparent 80%
-  );
+.aurora-ghost:hover {
+  background: rgba(135, 109, 90, 0.1);
+  transform: translateY(-2px);
 }
 
-.aurora-ghost > * {
-  color: #876D5A !important; /* 使用主色調作為文字顏色 */
-  font-weight: 600;
-  text-shadow: none; /* 移除文字陰影 */
+/* Line 按鈕基本樣式 */
+.aurora-line {
+  background: #00C300;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
 }
+
+.aurora-line:hover {
+  background: #00a000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 195, 0, 0.3);
+}
+
+/* Instagram 按鈕基本樣式 */
+.aurora-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.aurora-instagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 39, 67, 0.3);
+}
+
+

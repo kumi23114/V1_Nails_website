@@ -14,7 +14,12 @@ const Button = React.forwardRef(({
     primary: "aurora-primary focus:ring-pink-500",
     secondary: "aurora-secondary focus:ring-gray-500",
     outline: "aurora-outline focus:ring-pink-500",
-    ghost: "aurora-ghost focus:ring-pink-500"
+    ghost: "aurora-ghost focus:ring-pink-500",
+    // 新增 Line 和 Instagram 變體
+    line: "aurora-line focus:ring-green-500",
+    instagram: "aurora-instagram focus:ring-pink-500",
+    // 新增回到頂端按鈕變體
+    scrollTop: "aurora-secondary focus:ring-gray-500"
   };
   
   const sizes = {

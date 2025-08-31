@@ -175,10 +175,10 @@ export const ScrollTriggerContainer = ({
   const ref = useRef(null);
   const isMobile = useMobileDetection();
   // 優化觸發參數 - 保持進入觸發，延遲消失觸發
-  const desktopViewportMargin = "-200px 0px -400px 0px"; // 桌面版：進入-200px，消失-400px
-  const mobileViewportMargin = "-50px 0px -200px 0px"; // 手機版：進入-50px，消失-200px
-  const desktopAmount = 0.1; // 桌面版降低觸發閾值
-  const mobileAmount = 0.05; // 手機版更低的觸發閾值
+  const desktopViewportMargin = "-100px 0px -200px 0px"; // 桌面版：進入-100px，消失-200px
+  const mobileViewportMargin = "-50px 0px -100px 0px"; // 手機版：進入-50px，消失-100px
+  const desktopAmount = 0.05; // 桌面版降低觸發閾值
+  const mobileAmount = 0.02; // 手機版更低的觸發閾值
   
   const isInView = useInView(ref, { 
     once: false, // 允許重複觸發
@@ -186,20 +186,25 @@ export const ScrollTriggerContainer = ({
     amount: isMobile ? mobileAmount : desktopAmount 
   });
 
+  // 調試信息
+  // if (process.env.NODE_ENV === 'development') {
+  //   console.log('ScrollTriggerContainer isInView:', isInView);
+  // }
+
   // 行動版優化參數
   const mobileStaggerDelay = Math.min(staggerDelay * 0.6, 0.15);
   const mobileAnimationDuration = 0.6; // 增加動畫時間讓過渡更平滑
 
   // 調試信息 - 只在開發環境顯示
-  if (process.env.NODE_ENV === 'development') {
-    console.log('ScrollTriggerContainer:', {
-      isInView,
-      isMobile,
-      viewportMargin: isMobile ? mobileViewportMargin : desktopViewportMargin,
-      amount: isMobile ? mobileAmount : desktopAmount,
-      staggerDelay: isMobile ? mobileStaggerDelay : staggerDelay
-    });
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   console.log('ScrollTriggerContainer:', {
+  //     isInView,
+  //     isMobile,
+  //     viewportMargin: isMobile ? mobileViewportMargin : desktopViewportMargin,
+  //     amount: isMobile ? mobileAmount : desktopAmount,
+  //     staggerDelay: isMobile ? mobileStaggerDelay : staggerDelay
+  //   });
+  // }
 
   // 視差滾動效果
   const { scrollYProgress } = useScroll({
@@ -427,7 +432,20 @@ export const AnimatedGrid = ({
   const mobileColumns = Math.min(columns, 2);
   const gridCols = isMobile ? mobileColumns : columns;
   
-  const gridClass = `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-${gridCols} lg:grid-cols-${columns} gap-6 md:gap-8`;
+  // 動態生成網格類別
+  const getGridClass = () => {
+    if (columns === 5) {
+      return 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8';
+    } else if (columns === 4) {
+      return 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8';
+    } else if (columns === 3) {
+      return 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8';
+    } else {
+      return `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-${Math.min(gridCols, 3)} lg:grid-cols-${Math.min(columns, 5)} gap-6 md:gap-8`;
+    }
+  };
+
+  const gridClass = getGridClass();
 
   return (
     <motion.div
@@ -442,6 +460,7 @@ export const AnimatedGrid = ({
           },
         },
       }}
+      style={{ perspective: "1000px" }}
     >
       {children}
     </motion.div>
