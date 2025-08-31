@@ -5,8 +5,8 @@ export const site = {
       tagline: "private nail studio",
     },
     hero: {
-      headline: "專屬於你的精緻美甲",
-      sub: "以細膩打磨、溫柔照護，打造耐看且襯膚的日常優雅。",
+      headline: "莉蘿zeronails大里美甲",
+      sub: "ᴢᴇʀᴏ ᴘʀᴇss ᴏɴ ɴᴀɪʟs",
       ctaPrimary: "立即預約",
       ctaSecondary: "查看作品",
       bg: "/images/hero.jpg",
@@ -132,8 +132,8 @@ export const site = {
       tagline: "private nail studio",
     },
     hero: {
-      headline: "Exquisite Nail Art Just for You",
-      sub: "With delicate craftsmanship and gentle care, we create timeless and skin-flattering daily elegance.",
+      headline: "莉蘿zeronails大里美甲",
+      sub: "ᴢᴇʀᴏ ᴘʀᴇss ᴏɴ ɴᴀɪʟs",
       ctaPrimary: "Book Now",
       ctaSecondary: "View Portfolio",
       bg: "/images/hero.jpg",

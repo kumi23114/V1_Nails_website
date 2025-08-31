@@ -14,81 +14,87 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav className="shadow-sm sticky top-0 z-50 border-b border-serene-200" style={{background: 'linear-gradient(135deg, #4C657A 0%, #253A4A 50%, #142025 100%)'}}>
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          {/* 品牌標誌 */}
-          <div className="flex items-center">
-            <h1 className="text-xl font-semibold text-gray-900 font-display">
-              {currentContent.brand.name}
-            </h1>
-            <span className="ml-2 text-sm text-gray-500 hidden sm:block font-body">
-              {currentContent.brand.tagline}
-            </span>
-          </div>
-
-          {/* 桌面版導航 */}
+        <div className="flex items-center h-16 relative">
+          {/* 左側導航 */}
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#portfolio"
-              className="text-gray-600 hover:text-gray-900 transition-colors font-body"
+              className="text-white hover:text-serene-200 transition-colors font-body"
             >
               {navContent.portfolio}
             </a>
             <a
               href="#services"
-              className="text-gray-600 hover:text-gray-900 transition-colors font-body"
+              className="text-white hover:text-serene-200 transition-colors font-body"
             >
               {navContent.services}
             </a>
-            <a
-              href="#booking"
-              className="text-gray-600 hover:text-gray-900 transition-colors font-body"
-            >
-              {navContent.booking}
-            </a>
-            <a
-              href="#location"
-              className="text-gray-600 hover:text-gray-900 transition-colors font-body"
-            >
-              {navContent.location}
-            </a>
-            
-            {/* 語言切換按鈕 */}
-            <button
-              onClick={toggleLanguage}
-              className="px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50 transition-colors font-body"
-            >
-              {language === 'zh' ? 'EN' : '中文'}
-            </button>
-            
-            <a
-              href={currentContent.location.lineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="aurora-line text-white px-4 py-2 rounded-lg transition-all duration-300 font-body"
-            >
-              {navContent.bookNow}
-            </a>
           </div>
 
-          {/* 手機版漢堡菜單按鈕 */}
-          <div className="md:hidden flex items-center space-x-2">
-            {/* 手機版語言切換按鈕 */}
-            <button
-              onClick={toggleLanguage}
-              className="px-2 py-1 text-xs border border-gray-300 rounded-md hover:bg-gray-50 transition-colors font-body"
-            >
-              {language === 'zh' ? 'EN' : '中文'}
-            </button>
-            
-            <button
-              onClick={toggleMenu}
-              className={`toggle ${isMenuOpen ? 'on' : ''}`}
-              id="toggle"
-            >
-              <span></span>
-            </button>
+          {/* 中央品牌標誌 - 完全置中 */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+            <img
+              src="/images/ZERONAIL (1)LOGO.jpg"
+              alt="ZERONAIL Logo"
+              className="h-12 w-auto object-contain"
+            />
+          </div>
+
+          {/* 右側區域 - 包含桌面版導航和手機版漢堡選單 */}
+          <div className="ml-auto flex items-center space-x-8">
+            {/* 桌面版導航 */}
+            <div className="hidden md:flex items-center space-x-8">
+              <a
+                href="#booking"
+                className="text-white hover:text-serene-200 transition-colors font-body"
+              >
+                {navContent.booking}
+              </a>
+              <a
+                href="#location"
+                className="text-white hover:text-serene-200 transition-colors font-body"
+              >
+                {navContent.location}
+              </a>
+              
+              {/* 語言切換按鈕 */}
+              <button
+                onClick={toggleLanguage}
+                className="px-3 py-1 text-sm border border-serene-300 rounded-md hover:bg-serene-100/10 transition-colors font-body text-white"
+              >
+                {language === 'zh' ? 'EN' : '中文'}
+              </button>
+              
+              <a
+                href={currentContent.location.lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="aurora-line text-white px-4 py-2 rounded-lg transition-all duration-300 font-body"
+              >
+                {navContent.bookNow}
+              </a>
+            </div>
+
+            {/* 手機版漢堡選單按鈕 - 真正右上角 */}
+            <div className="md:hidden flex items-center space-x-2">
+              {/* 手機版語言切換按鈕 */}
+              <button
+                onClick={toggleLanguage}
+                className="px-2 py-1 text-xs border border-serene-300 rounded-md hover:bg-serene-100/10 transition-colors font-body text-white"
+              >
+                {language === 'zh' ? 'EN' : '中文'}
+              </button>
+              
+              <button
+                onClick={toggleMenu}
+                className={`toggle ${isMenuOpen ? 'on' : ''}`}
+                id="toggle"
+              >
+                <span></span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -182,7 +188,7 @@ export default function Navbar() {
         .toggle span:before {
           width: 100%;
           height: 3px;
-          background-color: #6b7280;
+          background-color: #F7F7F7;
           transition: all 0.3s;
           backface-visibility: hidden;
           border-radius: 2px;
@@ -201,21 +207,21 @@ export default function Navbar() {
           transform: rotate(-45deg) translate(7px, -8px);
         }
 
-        /* 菜單外觀 - 棕色背景 */
+        /* 菜單外觀 - 使用深色背景 */
         .menu {
           position: absolute;
           top: 100%;
           left: 0;
           right: 0;
-          color: #6D3B07;
+          color: white;
           width: 100%;
           padding: 20px;
           margin: 0;
           font-family: inherit;
           text-align: center;
           border-radius: 0 0 8px 8px;
-          background: #E0C3A9;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          background: linear-gradient(135deg, #4C657A 0%, #253A4A 50%, #142025 100%);
+          box-shadow: 0 4px 12px rgba(140, 157, 175, 0.3);
           opacity: 0;
           visibility: hidden;
           transition: all 0.4s ease;
@@ -238,7 +244,7 @@ export default function Navbar() {
           display: block;
           border-left: 8px solid transparent;
           border-right: 8px solid transparent;
-          border-bottom: 8px solid #E0C3A9;
+          border-bottom: 8px solid #4C657A;
         }
 
         .menu ul {
@@ -255,7 +261,7 @@ export default function Navbar() {
         .menu-link {
           display: block;
           padding: 12px 16px;
-          color: #6D3B07;
+          color: white;
           text-decoration: none;
           transition: all 0.2s;
           border-radius: 6px;
@@ -265,19 +271,19 @@ export default function Navbar() {
 
         .menu-link:hover,
         .menu-link:focus {
-          background: #D4B89A;
-          color: #6D3B07;
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
           transform: translateX(4px);
         }
 
         .menu-link.special {
-          background: #6D3B07;
-          color: white;
+          background: #F7F7F7;
+          color: #142025;
           font-weight: 600;
         }
 
         .menu-link.special:hover {
-          background: #5A2F05;
+          background: #E3E6EA;
           transform: translateX(4px);
         }
       `}</style>

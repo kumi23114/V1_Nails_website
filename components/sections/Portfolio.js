@@ -14,9 +14,9 @@ export default function Portfolio() {
   const { portfolio } = site[language];
   
   return (
-    <section id="portfolio" className="py-10 bg-gradient-to-br from-brown-50 to-brown-100 relative">
-      {/* 黑色遮罩背景 */}
-      <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+    <section id="portfolio" className="py-10 bg-gradient-to-br from-warm-400 to-serene-100 relative">
+      {/* 靜謐灰藍遮罩背景 */}
+      <div className="absolute inset-0 bg-serene-500 bg-opacity-20"></div>
       
       <ScrollTriggerContainer 
         className="container mx-auto px-4 relative z-10"
@@ -28,14 +28,14 @@ export default function Portfolio() {
         <AnimatedTitle 
           customDelay={0}
           enableGlow={true}
-          className="text-3xl font-bold text-[#6D3B07] mb-4 text-center drop-shadow-lg"
+          className="text-3xl font-bold text-ocean-400 mb-4 text-center drop-shadow-lg"
         >
           {portfolio.title}
         </AnimatedTitle>
         
         <AnimatedSubtitle 
           customDelay={0.1}
-          className="text-lg text-white mb-6 text-center font-medium drop-shadow-md"
+          className="text-lg text-ocean-600 mb-6 text-center font-medium drop-shadow-md"
         >
           {portfolio.subtitle}
         </AnimatedSubtitle>
