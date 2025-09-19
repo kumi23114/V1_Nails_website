@@ -1,11 +1,15 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 export default function BookingWidget() {
   const widgetContainerRef = useRef(null);
   const { language } = useLanguage();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // 重置載入狀態
+    setIsLoading(true);
+
     // 清理之前的 widget 實例
     const existingWidget = document.getElementById('sbw_trlbfj');
     if (existingWidget) {
@@ -50,6 +54,33 @@ export default function BookingWidget() {
           },
           "container_id": "sbw_trlbfj"
         });
+
+        // Widget 初始化後，監聽 iframe 載入完成
+        const checkWidgetLoaded = () => {
+          const iframe = document.querySelector('#sbw_trlbfj iframe');
+          if (iframe) {
+            // iframe 存在，等待其載入完成
+            iframe.onload = () => {
+              // 額外等待 1.5 秒確保內容完全載入
+              setTimeout(() => {
+                setIsLoading(false);
+              }, 1500);
+            };
+
+            // 如果 iframe 已經載入完成（快取情況）
+            if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+              setTimeout(() => {
+                setIsLoading(false);
+              }, 1500);
+            }
+          } else {
+            // iframe 還沒出現，繼續檢查
+            setTimeout(checkWidgetLoaded, 500);
+          }
+        };
+
+        // 開始檢查 widget 載入狀態
+        setTimeout(checkWidgetLoaded, 1000);
       }
     };
 
@@ -90,15 +121,21 @@ export default function BookingWidget() {
         }}
       />
       
-      {/* 載入提示 */}
-      <div className="text-center mt-4">
-        <p className={`text-sm text-gray-600 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
-          {language === 'zh' 
-            ? '預約系統載入中，請稍候...' 
-            : 'Loading booking system, please wait...'
-          }
-        </p>
-      </div>
+      {/* 載入提示 - 只在載入時顯示 */}
+      {isLoading && (
+        <div className="text-center mt-4">
+          <div className="flex items-center justify-center space-x-2">
+            {/* 載入動畫 */}
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#B8956A]"></div>
+            <p className={`text-sm text-gray-600 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
+              {language === 'zh'
+                ? '預約系統載入中，請稍候...'
+                : 'Loading booking system, please wait...'
+              }
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
