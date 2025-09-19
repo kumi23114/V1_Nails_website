@@ -5,8 +5,8 @@ export const site = {
       tagline: "莉蘿大里美甲",
     },
     hero: {
-      headline: "Zero Nails莉蘿大里美甲",
-      sub: "我們相信美是一種能量，\n在這片溫柔的空間裡，每一刻的創作都是靈魂對話與自我療癒的延伸。",
+      headline: "Zero Nails",
+      sub: "我們相信美是一種能量，\n在這片溫柔的空間裡，\n每一刻的創作都是靈魂對話與自我療癒的延伸。",
       ctaPrimary: "立即預約",
       ctaSecondary: "查看作品",
       bg: "/images/hero.jpg",
@@ -161,20 +161,7 @@ export const site = {
         "本店擁有最終解釋權"
       ]
     },
-    nailist: {
-      title: "關於美甲師",
-      name: "jun*",
-      badges: [
-        "美甲師資歷 10 年",
-        "美甲技能檢定一級",
-        "Nail Care Meister",
-        "美甲沙龍衛生管理士",
-        "個人色彩助理顧問"
-      ],
-      intro:
-        "一席制的私人小店，重視與每位客人的相處時間，依你的生活型態、偏好與指甲狀況，打造能讓你心情變好的日常美甲。",
-      photo: "/images/nail techist.jpg",
-    },
+
     news: {
       title: "最新消息",
       items: [
@@ -380,20 +367,7 @@ export const site = {
         "Form submission does not guarantee booking. We will confirm final time slot and deposit via Line."
       ]
     },
-    nailist: {
-      title: "About the Nail Artist",
-      name: "jun*",
-      badges: [
-        "10 years nail art experience",
-        "Nail art skill certification level 1",
-        "Nail Care Meister",
-        "Nail salon hygiene management",
-        "Personal color consultant"
-      ],
-      intro:
-        "A private one-seat studio that values time with each client. We create daily nail art that brightens your mood based on your lifestyle, preferences, and nail condition.",
-      photo: "/images/nail techist.jpg",
-    },
+
     news: {
       title: "Latest News",
       items: [
@@ -609,19 +583,7 @@ export const site_legacy = {
       "The studio reserves the right of final interpretation"
     ]
   },
-  nailist: {
-    name: "jun*",
-    badges: [
-      "美甲師資歷 10 年",
-      "美甲技能檢定一級",
-      "Nail Care Meister",
-      "美甲沙龍衛生管理士",
-      "個人色彩助理顧問"
-    ],
-    intro:
-      "一席制的私人小店，重視與每位客人的相處時間，依你的生活型態、偏好與指甲狀況，打造能讓你心情變好的日常美甲。",
-    photo: "/images/nail techist.jpg",
-  },
+
   news: {
     items: [
       {

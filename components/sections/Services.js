@@ -53,7 +53,7 @@ export default function Services() {
             <AnimatedContent
               key={categoryIndex}
               customDelay={categoryIndex * 0.2}
-              className="bg-white/90 rounded-lg p-6 md:p-8 shadow-lg"
+              className="bg-white/90 rounded-[20px] p-6 md:p-8 shadow-lg"
             >
               {/* 分類標題 */}
               <h3 className={`text-2xl font-bold text-gray-900 mb-6 text-center ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
@@ -117,7 +117,7 @@ export default function Services() {
               {/* 分類說明 */}
               {category.notes && category.notes.length > 0 && (
                 <AnimatedContent customDelay={0.3}>
-                  <div className="bg-[#A68B5B] rounded-lg p-4 mt-4">
+                  <div className="bg-[#A68B5B] rounded-[20px] p-4 mt-4">
                     <ul className={`space-y-1 text-white text-sm ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                       {category.notes.map((note, noteIndex) => (
                         <li key={noteIndex} className="flex items-start">
@@ -136,7 +136,7 @@ export default function Services() {
         {/* 預約須知區塊 - 延遲浮現 */}
         <AnimatedContent
           customDelay={0.6}
-          className="bg-white/90 rounded-lg p-6 md:p-8 shadow-lg"
+          className="bg-white/90 rounded-[20px] p-6 md:p-8 shadow-lg"
         >
           <h3 className={`text-xl font-semibold text-gray-900 mb-6 text-center ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
             {language === 'zh' ? '預約須知' : 'Booking Notice'}
@@ -145,7 +145,7 @@ export default function Services() {
           <div className="space-y-8">
             {/* 基本注意事項 */}
             <AnimatedContent customDelay={0.7}>
-              <h4 className={`font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
+              <h4 className={`font-semibold text-gray-900 mb-4 border-b border-[#9D7F4F] pb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
                 {language === 'zh' ? '注意事項' : 'Important Notes'}
               </h4>
               <ul className={`space-y-3 text-gray-700 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
@@ -174,7 +174,7 @@ export default function Services() {
 
             {/* 設計服務說明 */}
             <AnimatedContent customDelay={0.8}>
-              <h4 className={`font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
+              <h4 className={`font-semibold text-gray-900 mb-4 border-b border-[#9D7F4F] pb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
                 {language === 'zh' ? '設計服務說明' : 'Design Service Information'}
               </h4>
               <ul className={`space-y-3 text-gray-700 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
@@ -197,7 +197,7 @@ export default function Services() {
 
             {/* 時間與遲到政策 */}
             <AnimatedContent customDelay={0.9}>
-              <h4 className={`font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
+              <h4 className={`font-semibold text-gray-900 mb-4 border-b border-[#9D7F4F] pb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
                 {language === 'zh' ? '時間與遲到政策' : 'Time & Lateness Policy'}
               </h4>
               <ul className={`space-y-3 text-gray-700 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
@@ -224,7 +224,7 @@ export default function Services() {
 
             {/* 最終聲明 */}
             <AnimatedContent customDelay={1.0}>
-              <div className="bg-gray-50 rounded-lg p-4 text-center">
+              <div className="bg-gray-50 rounded-[20px] p-4 text-center">
                 <p className={`text-gray-800 font-medium ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                   {language === 'zh' ? '本店擁有最終解釋權' : 'The studio reserves the right of final interpretation'}
                 </p>

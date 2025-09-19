@@ -19,7 +19,7 @@ export const COMMON_STYLES = {
   CONTAINER: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
   
   // 卡片樣式
-  CARD: "bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300",
+  CARD: "bg-white rounded-[20px] shadow-md hover:shadow-lg transition-shadow duration-300",
   
   // 標題樣式
   HEADING: "text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800",
@@ -66,7 +66,7 @@ export const COMMON_STYLES = {
   
   // 圓角
   ROUNDED_SM: "rounded-md",
-  ROUNDED_MD: "rounded-lg",
+  ROUNDED_MD: "rounded-[20px]",
   ROUNDED_LG: "rounded-xl",
   ROUNDED_FULL: "rounded-full",
   

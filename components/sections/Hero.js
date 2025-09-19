@@ -3,9 +3,8 @@ import { useState, useEffect } from "react";
 import Button from "../ui/Button";
 import { site } from "../../data/content";
 import { useLanguage } from "../../contexts/LanguageContext";
-import { 
-  ScrollTriggerContainer, 
-  AnimatedTitle, 
+import {
+  ScrollTriggerContainer,
   AnimatedSubtitle,
   AnimatedContent
 } from "../ui/UnifiedScrollAnimation";
@@ -13,139 +12,148 @@ import {
 export default function Hero() {
   const { language } = useLanguage();
   const { hero } = site[language];
-  
-  // 背景圖片陣列
-  const backgroundImages = [
+
+  // Hero圖片陣列
+  const heroImages = [
     '/images/hero1.png',
     '/images/hero2.png',
-    '/images/hero3.png'
+    '/images/hero3.png',
+    '/images/hero4.png'
   ];
-  
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  
-  // 自動切換背景圖片
+
+  // 自動切換圖片
   useEffect(() => {
     const interval = setInterval(() => {
       setIsTransitioning(true);
       setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => 
-          (prevIndex + 1) % backgroundImages.length
+        setCurrentImageIndex((prevIndex) =>
+          (prevIndex + 1) % heroImages.length
         );
         setIsTransitioning(false);
-      }, 800); // 0.8秒後切換圖片，配合CSS動畫時間
-    }, 3000); // 每3秒切換一次，更符合用戶瀏覽習慣
-    
+      }, 800);
+    }, 4000); // 每4秒切換一次
+
     return () => clearInterval(interval);
-  }, [backgroundImages.length]);
-  
+  }, [heroImages.length]);
+
   return (
     <section
       id="hero"
-      className="relative min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden"
+      className="relative min-h-[70vh] md:min-h-[80vh] lg:min-h-[90vh] bg-gradient-to-br from-[#F5F3F1] to-[#E8E6E3] overflow-hidden"
     >
-      {/* 背景圖片容器 */}
-      <div className="absolute inset-0">
-        {backgroundImages.map((image, index) => (
-          <div
-            key={image}
-            className={`absolute inset-0 hero-background-transition ${
-              index === currentImageIndex && !isTransitioning
-                ? 'opacity-100 hero-background-fade-in'
-                : 'opacity-0 hero-background-fade-out'
-            }`}
-            style={{
-              backgroundImage: `url('${image}')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              backgroundColor: '#F5F3F1'
-            }}
-          />
-        ))}
-      </div>
-      
-      {/* 背景遮罩層，確保文字清晰可讀 */}
-      <div className="absolute inset-0 bg-black/20"></div>
-      
-      {/* 漸層遮罩，增加視覺層次 */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/15 to-transparent"></div>
-      
-      {/* 背景指示器 */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
-        {backgroundImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              setIsTransitioning(true);
-              setTimeout(() => {
-                setCurrentImageIndex(index);
-                setIsTransitioning(false);
-              }, 800);
-            }}
-            className={`w-3 h-3 rounded-full hero-indicator ${
-              index === currentImageIndex
-                ? 'bg-white scale-125'
-                : 'bg-white/50 hover:bg-white/75'
-            }`}
-            aria-label={`切換到背景圖片 ${index + 1}`}
-          />
-        ))}
-      </div>
-      
-      <ScrollTriggerContainer 
-        className="relative container-responsive py-16 z-10"
-        staggerDelay={0.3}
-        animationType="fadeUp"
-        enableParallax={true}
-        parallaxSpeed={0.2}
-      >
-        <AnimatedTitle
-          customDelay={0}
-          enableGlow={true}
-          className={`text-white font-bold text-3xl md:text-5xl text-center ${
-            language === 'zh' ? 'font-chinese' : 'font-display'
-          }`}
-          style={{
-            textShadow: '0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.3), 0 0 60px rgba(0, 0, 0, 0.2)'
-          }}
-        >
-          {hero.headline}
-        </AnimatedTitle>
+      <div className="container-responsive h-full flex items-center justify-center py-2 md:py-6 lg:py-8">
+        {/* 左右分欄區域 - 70/30 比例 */}
+        <div className="flex-1 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+          {/* 左側圖片容器 - 70% 寬度 */}
+          <div className="relative order-2 lg:order-1 w-full lg:w-[70%]">
+            <div className="relative w-full">
+              {/* 橫向圖片容器 - 16:9 比例 */}
+              <div className="relative aspect-[16/9] rounded-[20px] overflow-hidden shadow-2xl">
+                {heroImages.map((image, index) => (
+                  <div
+                    key={image}
+                    className={`absolute inset-0 transition-all duration-700 ease-out ${
+                      index === currentImageIndex && !isTransitioning
+                        ? 'opacity-100 scale-100'
+                        : 'opacity-0 scale-105'
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Hero ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
 
-        <AnimatedSubtitle
-          customDelay={0.2}
-          className={`mt-4 text-white font-semibold mx-auto text-lg md:text-xl text-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl leading-relaxed hero-subtitle-container ${
-            language === 'zh' ? 'font-chinese' : 'font-display'
-          }`}
-          style={{
-            textShadow: '0 0 15px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.25), 0 0 45px rgba(0, 0, 0, 0.15)'
-          }}
-          lang={language}
-        >
-          {hero.sub.split('\n').map((line, index) => (
-            <span key={index}>
-              {line}
-              {index < hero.sub.split('\n').length - 1 && <br />}
-            </span>
-          ))}
-        </AnimatedSubtitle>
-        
-        <AnimatedContent customDelay={0.4}>
-          <div className="mt-8 flex gap-3">
-            <ScrollLink to="booking" smooth={true} offset={-56} duration={400}>
-              <Button as="span" className="aurora-primary shadow-lg font-bold">
-                {hero.ctaPrimary}
-              </Button>
-            </ScrollLink>
-            <ScrollLink to="portfolio" smooth={true} offset={-56} duration={400}>
-              <Button variant="outline" className="aurora-outline border-white text-white hover:bg-white hover:text-gray-900">
-                {hero.ctaSecondary}
-              </Button>
-            </ScrollLink>
+              {/* 圖片指示器 */}
+              <div className="flex justify-center mt-4 gap-2">
+                {heroImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setIsTransitioning(true);
+                      setTimeout(() => {
+                        setCurrentImageIndex(index);
+                        setIsTransitioning(false);
+                      }, 800);
+                    }}
+                    className={`w-3 h-3 rounded-full transition-all duration-400 ease-out hover:scale-120 ${
+                      index === currentImageIndex
+                        ? 'bg-[#B8956A] scale-125'
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`切換到圖片 ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-        </AnimatedContent>
-      </ScrollTriggerContainer>
+
+          {/* 右側直式文字區域 - 30% 寬度 */}
+          <div className="relative order-1 lg:order-2 w-full lg:w-[30%] flex justify-center lg:justify-start">
+            <ScrollTriggerContainer
+              className="relative z-10 h-full flex flex-col lg:flex-row lg:items-start lg:gap-6"
+              staggerDelay={0.3}
+              animationType="fadeUp"
+              enableParallax={false}
+            >
+              {/* 三段直式副標題 */}
+              <div className="flex flex-col gap-4 md:gap-5 lg:gap-6 w-full">
+                <AnimatedSubtitle
+                  customDelay={0.2}
+                  className={`text-base md:text-lg lg:text-xl leading-relaxed lg:leading-loose tracking-wide text-center lg:text-left text-gray-600 font-medium ${
+                    language === 'zh' ? 'font-chinese break-keep' : 'font-display break-words'
+                  }`}
+                  lang={language}
+                >
+                  我們相信美是一種能量，
+                </AnimatedSubtitle>
+
+                <AnimatedSubtitle
+                  customDelay={0.3}
+                  className={`text-base md:text-lg lg:text-xl leading-relaxed lg:leading-loose tracking-wide text-center lg:text-left text-gray-600 font-medium ${
+                    language === 'zh' ? 'font-chinese break-keep' : 'font-display break-words'
+                  }`}
+                  lang={language}
+                >
+                  在這片溫柔的空間裡，
+                </AnimatedSubtitle>
+
+                <AnimatedSubtitle
+                  customDelay={0.4}
+                  className={`text-base md:text-lg lg:text-xl leading-relaxed lg:leading-loose tracking-wide text-center lg:text-left text-gray-600 font-medium ${
+                    language === 'zh' ? 'font-chinese break-keep' : 'font-display break-words'
+                  }`}
+                  lang={language}
+                >
+                  每一刻的創作都是靈魂對話與自我療癒的延伸。
+                </AnimatedSubtitle>
+
+                {/* 按鈕區域 - 移到副標題下方 */}
+                <AnimatedContent customDelay={0.5}>
+                  <div className="flex flex-col md:flex-row lg:flex-row gap-3 md:gap-4 w-full max-w-xs md:max-w-none mx-auto lg:mx-0 mt-6 md:mt-8 lg:mt-8 md:justify-center lg:justify-start">
+                    <ScrollLink to="booking" smooth={true} offset={-56} duration={400}>
+                      <Button as="span" className="shadow-lg font-bold whitespace-nowrap min-w-[120px] md:min-w-auto w-full md:w-auto">
+                        {hero.ctaPrimary}
+                      </Button>
+                    </ScrollLink>
+                    <ScrollLink to="portfolio" smooth={true} offset={-56} duration={400}>
+                      <Button variant="outline" className="border-[#B8956A] text-[#B8956A] hover:bg-[#B8956A] hover:text-white whitespace-nowrap min-w-[120px] md:min-w-auto w-full md:w-auto">
+                        {hero.ctaSecondary}
+                      </Button>
+                    </ScrollLink>
+                  </div>
+                </AnimatedContent>
+              </div>
+            </ScrollTriggerContainer>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

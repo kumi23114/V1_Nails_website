@@ -13,7 +13,7 @@ export default function Portfolio() {
   const { portfolio } = site[language];
   
   return (
-    <section id="portfolio" className="py-10 bg-gradient-to-br from-brown-50 to-brown-100 relative">
+    <section id="portfolio" className="pt-4 pb-10 md:py-10 bg-gradient-to-br from-brown-50 to-brown-100 relative">
       {/* 黑色遮罩背景 */}
       <div className="absolute inset-0 bg-black bg-opacity-20"></div>
       

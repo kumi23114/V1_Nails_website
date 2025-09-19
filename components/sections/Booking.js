@@ -44,7 +44,7 @@ export default function Booking() {
 
         <div className="max-w-4xl mx-auto">
           {/* 日期選擇器 - 現在在上方 */}
-          <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 mb-8">
+          <div className="bg-white rounded-[20px] shadow-lg p-6 md:p-8 mb-8">
             <h3 className={`text-xl font-semibold text-gray-900 mb-6 text-center ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
               {language === 'zh' ? '選擇預約日期' : 'Select Booking Date'}
             </h3>
@@ -68,7 +68,7 @@ export default function Booking() {
           </div>
 
           {/* 預約表單 - 現在在下方 */}
-          <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
+          <div className="bg-white rounded-[20px] shadow-lg p-6 md:p-8">
             <h3 className={`text-xl font-semibold text-gray-900 mb-6 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
               {language === 'zh' ? '填寫預約資訊' : 'Fill Booking Information'}
             </h3>
@@ -84,7 +84,7 @@ export default function Booking() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${language === 'zh' ? 'font-chinese' : 'font-body'}`}
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-[20px] focus:ring-2 focus:ring-green-500 focus:border-transparent ${language === 'zh' ? 'font-chinese' : 'font-body'}`}
                   placeholder={language === 'zh' ? '請輸入您的姓名' : 'Please enter your name'}
                 />
               </div>
@@ -99,7 +99,7 @@ export default function Booking() {
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
-                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${language === 'zh' ? 'font-chinese' : 'font-body'}`}
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-[20px] focus:ring-2 focus:ring-green-500 focus:border-transparent ${language === 'zh' ? 'font-chinese' : 'font-body'}`}
                   placeholder={language === 'zh' ? '請輸入您的電話號碼' : 'Please enter your phone number'}
                 />
               </div>
@@ -133,7 +133,7 @@ export default function Booking() {
                   value={formData.timeSlot}
                   onChange={handleInputChange}
                   required
-                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${language === 'zh' ? 'font-chinese' : 'font-body'}`}
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-[20px] focus:ring-2 focus:ring-green-500 focus:border-transparent ${language === 'zh' ? 'font-chinese' : 'font-body'}`}
                 >
                   <option value="">{language === 'zh' ? '請選擇時段' : 'Please select a time slot'}</option>
                   {booking.timeSlots.map((slot, index) => (
@@ -153,12 +153,12 @@ export default function Booking() {
                   value={formData.notes}
                   onChange={handleInputChange}
                   rows="4"
-                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent ${language === 'zh' ? 'font-chinese' : 'font-body'}`}
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-[20px] focus:ring-2 focus:ring-green-500 focus:border-transparent ${language === 'zh' ? 'font-chinese' : 'font-body'}`}
                   placeholder={language === 'zh' ? '如有特殊需求或問題，請在此說明' : 'Please specify any special requirements or questions'}
                 />
               </div>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              <div className="bg-yellow-50 border border-yellow-200 rounded-[20px] p-4">
                 <p className={`text-yellow-800 text-sm ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                   {booking.disclaimer}
                 </p>
@@ -166,7 +166,7 @@ export default function Booking() {
 
               <button
                 type="submit"
-                className={`w-full aurora-background text-white py-3 px-6 rounded-lg transition-all duration-300 font-semibold ${language === 'zh' ? 'font-chinese' : 'font-display'}`}
+                className={`w-full aurora-background text-white py-3 px-6 rounded-[20px] transition-all duration-300 font-semibold ${language === 'zh' ? 'font-chinese' : 'font-display'}`}
               >
                 {language === 'zh' ? '送出預約' : 'Submit Booking'}
               </button>

@@ -66,7 +66,7 @@ export default function Navbar() {
               href={currentContent.location.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`aurora-line text-white px-4 py-2 rounded-lg transition-all duration-300 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}
+              className={`aurora-line text-white px-4 py-2 rounded-[20px] transition-all duration-300 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}
             >
               {navContent.bookNow}
             </a>

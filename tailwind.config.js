@@ -13,6 +13,9 @@ module.exports = {
         chinese: ["Noto Serif TC", "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "Hiragino Mincho ProN W3", "HiraMinProN-W3", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "MS PMincho", "serif"],
         nav: ["Sorts Mill Goudy", "serif"],
       },
+      scale: {
+        '120': '1.2',
+      },
       colors: {
         brand: {
           50: "#faf8f6",

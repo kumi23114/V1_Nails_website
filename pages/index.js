@@ -4,7 +4,6 @@ import Hero from '../components/sections/Hero';
 import Portfolio from '../components/sections/Portfolio';
 import Services from '../components/sections/Services';
 import Booking from '../components/sections/Booking';
-import Nailist from '../components/sections/Nailist';
 import Location from '../components/sections/Location';
 
 import Footer from '../components/layout/Footer';
@@ -40,10 +39,7 @@ export default function HomePage() {
         {/* 4. Booking - 線上預約，感興趣後立即預約 */}
         <Booking />
 
-        {/* 5. Nailist - 關於美甲師，了解專業度和信任感 */}
-        <Nailist />
-
-        {/* 6. Location - 店家位置，確認交通便利性 */}
+        {/* 5. Location - 店家位置，確認交通便利性 */}
         <Location />
       </main>
 

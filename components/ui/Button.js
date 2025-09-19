@@ -11,18 +11,18 @@ const Button = React.forwardRef(({
 }, ref) => {
   const { language } = useLanguage();
   const fontClass = language === 'zh' ? 'font-chinese' : 'font-display';
-  const baseClasses = `inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${fontClass}`;
+  const baseClasses = `inline-flex items-center justify-center font-semibold rounded-[20px] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${fontClass}`;
   
   const variants = {
-    primary: "aurora-primary focus:ring-pink-500",
-    secondary: "aurora-secondary focus:ring-gray-500",
-    outline: "aurora-outline focus:ring-pink-500",
-    ghost: "aurora-ghost focus:ring-pink-500",
+    primary: "aurora-primary focus:ring-amber-600",
+    secondary: "aurora-secondary focus:ring-amber-600",
+    outline: "aurora-outline focus:ring-amber-600",
+    ghost: "aurora-ghost focus:ring-amber-600",
     // 新增 Line 和 Instagram 變體
     line: "aurora-line focus:ring-green-500",
     instagram: "aurora-instagram focus:ring-pink-500",
     // 新增回到頂端按鈕變體
-    scrollTop: "aurora-secondary focus:ring-gray-500"
+    scrollTop: "aurora-secondary focus:ring-amber-600"
   };
   
   const sizes = {
