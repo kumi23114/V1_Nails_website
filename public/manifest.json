@@ -1,0 +1,44 @@
+{
+  "name": "Zero Nails 莉蘿大里美甲",
+  "short_name": "Zero Nails",
+  "description": "Zero Nails 莉蘿大里美甲，位於台中市大里區的專業美甲沙龍。提供凝膠美甲、手繪設計、貓眼漸層、鏡面法式等服務。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F3F1",
+  "theme_color": "#B8956A",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "zh-TW",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["beauty", "lifestyle", "business"],
+  "screenshots": [
+    {
+      "src": "/images/hero1.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "Zero Nails 美甲沙龍首頁"
+    }
+  ]
+}

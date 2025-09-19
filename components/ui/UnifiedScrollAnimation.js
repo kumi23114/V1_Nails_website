@@ -1,23 +1,7 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import { useRef } from 'react';
 import { useLanguage } from "../../contexts/LanguageContext";
-
-// 行動版檢測 hook
-const useMobileDetection = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  return isMobile;
-};
+import { useMobileDetection } from "../../hooks/useMobileDetection";
 
 // 優雅的浮現動畫變體
 const fadeUpVariants = {

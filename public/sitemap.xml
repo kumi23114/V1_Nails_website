@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- 主頁面 - 中文版 -->
+  <url>
+    <loc>https://zeronails.com/</loc>
+    <lastmod>2025-01-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zeronails.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://zeronails.com/" />
+  </url>
+  
+  <!-- 主頁面 - 英文版 -->
+  <url>
+    <loc>https://zeronails.com/?lang=en</loc>
+    <lastmod>2025-01-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zeronails.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://zeronails.com/" />
+  </url>
+  
+  <!-- 作品集區塊 -->
+  <url>
+    <loc>https://zeronails.com/#portfolio</loc>
+    <lastmod>2025-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- 服務項目區塊 -->
+  <url>
+    <loc>https://zeronails.com/#services</loc>
+    <lastmod>2025-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- 預約區塊 -->
+  <url>
+    <loc>https://zeronails.com/#booking</loc>
+    <lastmod>2025-01-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- 位置資訊區塊 -->
+  <url>
+    <loc>https://zeronails.com/#location</loc>
+    <lastmod>2025-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset>

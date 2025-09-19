@@ -10,7 +10,7 @@ module.exports = {
       fontFamily: {
         display: ["Sorts Mill Goudy", "serif"],
         body: ["Poppins", "ui-sans-serif", "system-ui", "sans-serif"],
-        chinese: ["Noto Serif TC", "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "Hiragino Mincho ProN W3", "HiraMinProN-W3", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "MS PMincho", "serif"],
+        chinese: ["游明朝体", "YuMincho", "游明朝", "Yu Mincho", "Hiragino Mincho ProN W3", "HiraMinProN-W3", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "HGS明朝 E", "MS PMincho", "serif"],
         nav: ["Sorts Mill Goudy", "serif"],
       },
       scale: {

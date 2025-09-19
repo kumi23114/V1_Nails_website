@@ -118,27 +118,11 @@ export const SPACING = {
   XXL: "space-y-12"
 };
 
-// 顏色常數
+// 顏色常數 - 使用 Tailwind 配置中的顏色
+// 這些常數主要用於 JavaScript 中需要動態顏色的場景
 export const COLORS = {
-  PRIMARY: {
-    50: "#faf8f6",
-    100: "#f5f1ed",
-    200: "#ede6de",
-    300: "#e0d4c7",
-    400: "#d1bfa8",
-    500: "#b8956a",
-    600: "#a68b5b",
-    700: "#9d7f4f",
-    800: "#8a6f42",
-    900: "#735d37"
-  },
   BACKGROUND: "#F8F6F4",
   BUTTON: "#B8956A",
   HERO: "#F5F3F1",
-  INK: "#A68B5B",
-  SAND: {
-    50: "#faf8f6",
-    100: "#f5f3f1",
-    200: "#f0ede9"
-  }
+  INK: "#A68B5B"
 };

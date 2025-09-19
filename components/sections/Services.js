@@ -15,18 +15,8 @@ export default function Services() {
   
   return (
     <section id="services" className="py-16 min-h-screen relative overflow-hidden">
-      {/* 背景圖片 */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url('/images/nail.background2.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
-      {/* 背景遮罩層，確保內容清晰可讀 */}
-      <div className="absolute inset-0 bg-white/80 z-0"></div>
+      {/* 背景漸層 */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#F8F6F4] via-[#F5F3F1] to-[#F0EDE9] z-0"></div>
       <ScrollTriggerContainer 
         className="container mx-auto px-4 relative z-10"
         staggerDelay={0.1}

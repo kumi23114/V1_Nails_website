@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital,wght@0,400;1,400&display=swap');
+
 
 html {
   scroll-behavior: smooth;
@@ -18,24 +14,18 @@ body {
   color: #A68B5B;
 }
 
-/* 字體類別 */
+/* 字體類別 - 使用 Tailwind 字體配置，只保留特殊樣式 */
 .font-display {
-  font-family: 'Sorts Mill Goudy', serif;
   letter-spacing: 0.15em;
 }
 
-.font-body {
-  font-family: 'Poppins', sans-serif;
-}
-
 .font-chinese {
-  font-family: 'Noto Serif TC', '游明朝体', 'YuMincho', '游明朝', 'Yu Mincho', 'Hiragino Mincho ProN W3', 'HiraMinProN-W3', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'MS PMincho', serif;
+  font-family: '游明朝体', 'YuMincho', '游明朝', 'Yu Mincho', 'Hiragino Mincho ProN W3', 'HiraMinProN-W3', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'HGS明朝 E', 'MS PMincho', serif;
   letter-spacing: 0.16em;
 }
 
 /* 導航專用字體 */
 .font-nav {
-  font-family: 'Sorts Mill Goudy', serif;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   font-size: 20px;

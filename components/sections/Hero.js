@@ -1,4 +1,16 @@
-import { Link as ScrollLink } from "react-scroll";
+// 平滑滾動函數
+const smoothScrollTo = (elementId, offset = -56, duration = 400) => {
+  const element = document.getElementById(elementId);
+  if (element) {
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition + offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+};
 import { useState, useEffect } from "react";
 import Button from "../ui/Button";
 import { site } from "../../data/content";
@@ -63,7 +75,10 @@ export default function Hero() {
                   >
                     <img
                       src={image}
-                      alt={`Hero ${index + 1}`}
+                      alt={language === 'zh' ?
+                        `Zero Nails 美甲沙龍環境展示 ${index + 1} - 專業美甲服務空間` :
+                        `Zero Nails salon environment showcase ${index + 1} - Professional nail service space`
+                      }
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -137,16 +152,21 @@ export default function Hero() {
                 {/* 按鈕區域 - 移到副標題下方 */}
                 <AnimatedContent customDelay={0.5}>
                   <div className="flex flex-col md:flex-row lg:flex-row gap-3 md:gap-4 w-full max-w-xs md:max-w-none mx-auto lg:mx-0 mt-6 md:mt-8 lg:mt-8 md:justify-center lg:justify-start">
-                    <ScrollLink to="booking" smooth={true} offset={-56} duration={400}>
-                      <Button as="span" className="shadow-lg font-bold whitespace-nowrap min-w-[120px] md:min-w-auto w-full md:w-auto">
-                        {hero.ctaPrimary}
-                      </Button>
-                    </ScrollLink>
-                    <ScrollLink to="portfolio" smooth={true} offset={-56} duration={400}>
-                      <Button variant="outline" className="border-[#B8956A] text-[#B8956A] hover:bg-[#B8956A] hover:text-white whitespace-nowrap min-w-[120px] md:min-w-auto w-full md:w-auto">
-                        {hero.ctaSecondary}
-                      </Button>
-                    </ScrollLink>
+                    <Button
+                      as="button"
+                      onClick={() => smoothScrollTo("booking")}
+                      className="shadow-lg font-bold whitespace-nowrap min-w-[120px] md:min-w-auto w-full md:w-auto"
+                    >
+                      {hero.ctaPrimary}
+                    </Button>
+                    <Button
+                      as="button"
+                      onClick={() => smoothScrollTo("portfolio")}
+                      variant="outline"
+                      className="border-[#B8956A] text-[#B8956A] hover:bg-[#B8956A] hover:text-white whitespace-nowrap min-w-[120px] md:min-w-auto w-full md:w-auto"
+                    >
+                      {hero.ctaSecondary}
+                    </Button>
                   </div>
                 </AnimatedContent>
               </div>

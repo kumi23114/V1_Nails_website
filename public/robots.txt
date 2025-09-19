@@ -1,0 +1,29 @@
+# Robots.txt for Zero Nails Website
+# https://zeronails.com
+
+User-agent: *
+Allow: /
+
+# 允許所有搜尋引擎索引
+Allow: /images/
+Allow: /_next/static/
+
+# 禁止索引的路徑（如果有的話）
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap 位置
+Sitemap: https://zeronails.com/sitemap.xml
+
+# 爬取延遲（可選）
+Crawl-delay: 1
+
+# 特定搜尋引擎設定
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /

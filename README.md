@@ -8,10 +8,10 @@
 
 - **框架**: Next.js
 - **樣式**: Tailwind CSS
-- **字體**: 
-  - 中文: Noto Sans TC
+- **字體**:
+  - 中文: Noto Serif TC
   - 英文: Poppins
-  - 標題: Cormorant Garamond
+  - 標題: Sorts Mill Goudy
 - **動畫**: CSS動畫 + 自定義動畫組件
 - **部署**: Vercel (推薦)
 
