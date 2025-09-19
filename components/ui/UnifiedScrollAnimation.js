@@ -387,7 +387,20 @@ export const AnimatedCard = ({
 
   return (
     <motion.div
-      className={`bg-white rounded-xl shadow-lg p-6 border border-gray-100 hover:shadow-2xl transition-all duration-300 ${className}`}
+      className={`bg-white rounded-xl shadow-lg p-6 border border-gray-100 transition-all duration-300 ${className}`}
+      style={{
+        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+      }}
+      onMouseEnter={(e) => {
+        if (hoverEffect && !isMobile) {
+          e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(166, 139, 91, 0.25)';
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (hoverEffect && !isMobile) {
+          e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+        }
+      }}
       variants={getVariants()}
       custom={customDelay}
       whileHover={!isMobile && hoverEffect ? (whileHover || defaultHoverEffect) : {}}

@@ -56,7 +56,7 @@ export default function Services() {
               className="bg-white/90 rounded-lg p-6 md:p-8 shadow-lg"
             >
               {/* 分類標題 */}
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center font-display">
+              <h3 className={`text-2xl font-bold text-gray-900 mb-6 text-center ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
                 {category.name}
               </h3>
 
@@ -75,28 +75,28 @@ export default function Services() {
                     animationType="card"
                     className="min-h-[180px] flex flex-col justify-center text-center p-4"
                   >
-                    <h4 className="text-lg font-bold text-gray-900 mb-3 font-display">
+                    <h4 className={`text-lg font-bold text-gray-900 mb-3 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
                       {item.name}
                     </h4>
 
                     {/* 價格顯示 */}
                     <div className="mb-3">
                       {item.price ? (
-                        <div className="text-2xl font-bold text-button font-body">
+                        <div className={`text-2xl font-bold text-button ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                           NT$ {item.price.toLocaleString()}
                         </div>
                       ) : (
                         <div className="space-y-1">
-                          <div className="text-lg font-bold text-button font-body">
+                          <div className={`text-lg font-bold text-button ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                             手部 NT$ {item.handPrice.toLocaleString()}
                           </div>
                           {item.footPrice && (
-                            <div className="text-lg font-bold text-button font-body">
+                            <div className={`text-lg font-bold text-button ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                               足部 NT$ {item.footPrice.toLocaleString()}
                             </div>
                           )}
                           {item.note && (
-                            <div className="text-xs text-gray-500 font-body">
+                            <div className={`text-xs text-gray-500 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                               {item.note}
                             </div>
                           )}
@@ -106,7 +106,7 @@ export default function Services() {
 
                     {/* 只有基礎保養區塊顯示說明文字 */}
                     {category.name === '基礎保養' || category.name === 'Basic Care' ? (
-                      <p className="text-gray-600 text-sm font-body leading-relaxed">
+                      <p className={`text-gray-600 text-sm leading-relaxed ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                         {item.desc}
                       </p>
                     ) : null}
@@ -117,11 +117,11 @@ export default function Services() {
               {/* 分類說明 */}
               {category.notes && category.notes.length > 0 && (
                 <AnimatedContent customDelay={0.3}>
-                  <div className="bg-gray-50 rounded-lg p-4 mt-4">
-                    <ul className="space-y-1 text-gray-600 text-sm font-body">
+                  <div className="bg-[#A68B5B] rounded-lg p-4 mt-4">
+                    <ul className={`space-y-1 text-white text-sm ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                       {category.notes.map((note, noteIndex) => (
                         <li key={noteIndex} className="flex items-start">
-                          <span className="text-button mr-2 text-xs">•</span>
+                          <span className="text-white mr-2 text-xs">•</span>
                           {note}
                         </li>
                       ))}
@@ -138,17 +138,17 @@ export default function Services() {
           customDelay={0.6}
           className="bg-white/90 rounded-lg p-6 md:p-8 shadow-lg"
         >
-          <h3 className="text-xl font-semibold text-gray-900 mb-6 text-center font-display">
+          <h3 className={`text-xl font-semibold text-gray-900 mb-6 text-center ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
             {language === 'zh' ? '預約須知' : 'Booking Notice'}
           </h3>
 
           <div className="space-y-8">
             {/* 基本注意事項 */}
             <AnimatedContent customDelay={0.7}>
-              <h4 className="font-semibold text-gray-900 mb-4 font-display border-b border-gray-200 pb-2">
+              <h4 className={`font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
                 {language === 'zh' ? '注意事項' : 'Important Notes'}
               </h4>
-              <ul className="space-y-3 text-gray-700 font-body">
+              <ul className={`space-y-3 text-gray-700 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                 {(language === 'zh' ? [
                   '預約前可傳圖報價，或告知預算先行討論',
                   '新客首次預約需付訂金500元，預約當天折抵',
@@ -174,10 +174,10 @@ export default function Services() {
 
             {/* 設計服務說明 */}
             <AnimatedContent customDelay={0.8}>
-              <h4 className="font-semibold text-gray-900 mb-4 font-display border-b border-gray-200 pb-2">
+              <h4 className={`font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
                 {language === 'zh' ? '設計服務說明' : 'Design Service Information'}
               </h4>
-              <ul className="space-y-3 text-gray-700 font-body">
+              <ul className={`space-y-3 text-gray-700 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                 {(language === 'zh' ? [
                   '自由發揮／不挑款 僅限預約三次以上客人',
                   '可提供: 深淺色系／喜好風格／元素／類似圖片',
@@ -197,10 +197,10 @@ export default function Services() {
 
             {/* 時間與遲到政策 */}
             <AnimatedContent customDelay={0.9}>
-              <h4 className="font-semibold text-gray-900 mb-4 font-display border-b border-gray-200 pb-2">
+              <h4 className={`font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
                 {language === 'zh' ? '時間與遲到政策' : 'Time & Lateness Policy'}
               </h4>
-              <ul className="space-y-3 text-gray-700 font-body">
+              <ul className={`space-y-3 text-gray-700 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                 {(language === 'zh' ? [
                   '預約保留10分鐘',
                   '遲到30分鐘，改為服務單色',
@@ -225,10 +225,10 @@ export default function Services() {
             {/* 最終聲明 */}
             <AnimatedContent customDelay={1.0}>
               <div className="bg-gray-50 rounded-lg p-4 text-center">
-                <p className="text-gray-800 font-medium font-body">
+                <p className={`text-gray-800 font-medium ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
                   {language === 'zh' ? '本店擁有最終解釋權' : 'The studio reserves the right of final interpretation'}
                 </p>
-                <p className="text-button font-bold text-lg mt-2 font-display">
+                <p className={`text-button font-bold text-lg mt-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
                   ZERO NAILS
                 </p>
               </div>
@@ -236,32 +236,7 @@ export default function Services() {
           </div>
         </AnimatedContent>
 
-        {/* 外部連結 - 最後浮現 */}
-        <AnimatedContent
-          customDelay={0.9}
-          className="mt-12 text-center"
-        >
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href={services.external.lineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="aurora-line px-6 py-3 rounded-lg text-white font-semibold hover:shadow-lg transition-shadow duration-300 inline-flex items-center gap-2"
-            >
-              <span>💬</span>
-              {services.external.lineLabel}
-            </a>
-            <a
-              href={services.external.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="aurora-instagram px-6 py-3 rounded-lg text-white font-semibold hover:shadow-lg transition-shadow duration-300 inline-flex items-center gap-2"
-            >
-              <span>📸</span>
-              {services.external.instagramLabel}
-            </a>
-          </div>
-        </AnimatedContent>
+
       </ScrollTriggerContainer>
     </section>
   );
