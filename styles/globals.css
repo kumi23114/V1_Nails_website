@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital,wght@0,400;1,400&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -12,12 +14,14 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #E0C3A9;
+  background-color: #f1f1f1;
+  color: #A68B5B;
 }
 
 /* 字體類別 */
 .font-display {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Sorts Mill Goudy', serif;
+  letter-spacing: 0.15em;
 }
 
 .font-body {
@@ -25,7 +29,34 @@ body {
 }
 
 .font-chinese {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Noto Serif TC', '游明朝体', 'YuMincho', '游明朝', 'Yu Mincho', 'Hiragino Mincho ProN W3', 'HiraMinProN-W3', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'MS PMincho', serif;
+  letter-spacing: 0.16em;
+}
+
+/* 導航專用字體 */
+.font-nav {
+  font-family: 'Sorts Mill Goudy', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  .font-nav {
+    font-size: 20px;
+  }
+}
+
+/* 英文標題字體 */
+.font-title-en {
+  font-family: 'Sorts Mill Goudy', serif;
+  letter-spacing: 0.15em;
+}
+
+/* 中文標題字體 */
+.font-title-zh {
+  font-family: 'Noto Serif TC', '游明朝体', 'YuMincho', '游明朝', 'Yu Mincho', 'Hiragino Mincho ProN W3', 'HiraMinProN-W3', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'MS PMincho', serif;
+  letter-spacing: 0.16em;
 }
 
 /* 確保行動版內容顯示 */
@@ -107,42 +138,99 @@ body {
   transform: scale(1.2);
 }
 
+/* Hero subtitle 兩列顯示優化 */
+.hero-subtitle-container {
+  /* 確保文字在不同螢幕尺寸下都能保持兩列顯示 */
+  word-spacing: 0.1em;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+/* 針對中文字體的優化 */
+.hero-subtitle-container[lang="zh"] {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 針對英文字體的優化 */
+.hero-subtitle-container[lang="en"] {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* 響應式字體大小和間距優化 */
+@media (max-width: 480px) {
+  .hero-subtitle-container {
+    font-size: 1rem;
+    line-height: 1.5;
+    word-spacing: 0.05em;
+    letter-spacing: 0.01em;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-subtitle-container {
+    font-size: 1.125rem;
+    line-height: 1.55;
+    word-spacing: 0.08em;
+    letter-spacing: 0.015em;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-subtitle-container {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    word-spacing: 0.1em;
+    letter-spacing: 0.02em;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hero-subtitle-container {
+    font-size: 1.25rem;
+    line-height: 1.65;
+    word-spacing: 0.12em;
+    letter-spacing: 0.025em;
+  }
+}
+
 /* 基本按鈕樣式 - 移除所有動畫效果 */
 .aurora-primary {
-  background: #876D5A;
+  background: #B8956A;
   color: white;
   border: none;
   transition: all 0.3s ease;
 }
 
 .aurora-primary:hover {
-  background: #6D3B07;
+  background: #9D7F4F;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .aurora-secondary {
-  background: #6D3B07;
+  background: #9D7F4F;
   color: white;
   border: none;
   transition: all 0.3s ease;
 }
 
 .aurora-secondary:hover {
-  background: #5a2f05;
+  background: #8A6F42;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .aurora-outline {
   background: transparent;
-  color: #876D5A;
-  border: 2px solid #876D5A;
+  color: #B8956A;
+  border: 2px solid #B8956A;
   transition: all 0.3s ease;
 }
 
 .aurora-outline:hover {
-  background: #876D5A;
+  background: #B8956A;
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -150,13 +238,13 @@ body {
 
 .aurora-ghost {
   background: transparent;
-  color: #876D5A;
+  color: #B8956A;
   border: none;
   transition: all 0.3s ease;
 }
 
 .aurora-ghost:hover {
-  background: rgba(135, 109, 90, 0.1);
+  background: rgba(184, 149, 106, 0.1);
   transform: translateY(-2px);
 }
 

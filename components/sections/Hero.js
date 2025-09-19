@@ -16,11 +16,9 @@ export default function Hero() {
   
   // 背景圖片陣列
   const backgroundImages = [
-    '/images/nail.png',
-    '/images/manicure.png',
-    '/images/background (1).png',
-    '/images/background (2).png',
-    '/images/background (3).png'
+    '/images/hero1.png',
+    '/images/hero2.png',
+    '/images/hero3.png'
   ];
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -61,7 +59,7 @@ export default function Hero() {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
-              backgroundColor: '#FFCA99'
+              backgroundColor: '#F5F3F1'
             }}
           />
         ))}
@@ -102,19 +100,35 @@ export default function Hero() {
         enableParallax={true}
         parallaxSpeed={0.2}
       >
-        <AnimatedTitle 
+        <AnimatedTitle
           customDelay={0}
           enableGlow={true}
-          className="text-white font-bold text-3xl md:text-5xl text-center"
+          className={`text-white font-bold text-3xl md:text-5xl text-center ${
+            language === 'zh' ? 'font-chinese' : 'font-display'
+          }`}
+          style={{
+            textShadow: '0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.3), 0 0 60px rgba(0, 0, 0, 0.2)'
+          }}
         >
           {hero.headline}
         </AnimatedTitle>
-        
-        <AnimatedSubtitle 
+
+        <AnimatedSubtitle
           customDelay={0.2}
-          className="mt-4 text-white font-semibold max-w-prose text-lg md:text-xl text-center"
+          className={`mt-4 text-white font-semibold mx-auto text-lg md:text-xl text-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl leading-relaxed hero-subtitle-container ${
+            language === 'zh' ? 'font-chinese' : 'font-display'
+          }`}
+          style={{
+            textShadow: '0 0 15px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.25), 0 0 45px rgba(0, 0, 0, 0.15)'
+          }}
+          lang={language}
         >
-          {hero.sub}
+          {hero.sub.split('\n').map((line, index) => (
+            <span key={index}>
+              {line}
+              {index < hero.sub.split('\n').length - 1 && <br />}
+            </span>
+          ))}
         </AnimatedSubtitle>
         
         <AnimatedContent customDelay={0.4}>

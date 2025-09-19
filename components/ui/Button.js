@@ -1,14 +1,17 @@
 import React from "react";
+import { useLanguage } from "../../contexts/LanguageContext";
 
-const Button = React.forwardRef(({ 
-  children, 
-  className = "", 
-  variant = "primary", 
-  size = "md", 
+const Button = React.forwardRef(({
+  children,
+  className = "",
+  variant = "primary",
+  size = "md",
   as: Component = "button",
-  ...props 
+  ...props
 }, ref) => {
-  const baseClasses = "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 font-body";
+  const { language } = useLanguage();
+  const fontClass = language === 'zh' ? 'font-chinese' : 'font-display';
+  const baseClasses = `inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${fontClass}`;
   
   const variants = {
     primary: "aurora-primary focus:ring-pink-500",

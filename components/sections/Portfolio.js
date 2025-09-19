@@ -1,4 +1,3 @@
-import SectionHeader from "../ui/SectionHeader";
 import PortfolioCarousel from "../ui/PortfolioCarousel";
 import { site } from "../../data/content";
 import { useLanguage } from "../../contexts/LanguageContext";
@@ -25,17 +24,17 @@ export default function Portfolio() {
         enableParallax={true}
         parallaxSpeed={0.3}
       >
-        <AnimatedTitle 
+        <AnimatedTitle
           customDelay={0}
           enableGlow={true}
-          className="text-3xl font-bold text-[#6D3B07] mb-4 text-center drop-shadow-lg"
+          className={`text-3xl font-bold text-[#9D7F4F] mb-4 text-center drop-shadow-lg ${language === 'zh' ? 'font-chinese' : 'font-display'}`}
         >
           {portfolio.title}
         </AnimatedTitle>
-        
-        <AnimatedSubtitle 
+
+        <AnimatedSubtitle
           customDelay={0.1}
-          className="text-lg text-white mb-6 text-center font-medium drop-shadow-md"
+          className={`text-lg text-white mb-6 text-center font-medium drop-shadow-md ${language === 'zh' ? 'font-chinese' : 'font-body'}`}
         >
           {portfolio.subtitle}
         </AnimatedSubtitle>

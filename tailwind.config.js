@@ -8,43 +8,44 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Cormorant Garamond", "serif"],
+        display: ["Sorts Mill Goudy", "serif"],
         body: ["Poppins", "ui-sans-serif", "system-ui", "sans-serif"],
-        chinese: ["Noto Sans TC", "ui-sans-serif", "system-ui", "sans-serif"],
+        chinese: ["Noto Serif TC", "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "Hiragino Mincho ProN W3", "HiraMinProN-W3", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "MS PMincho", "serif"],
+        nav: ["Sorts Mill Goudy", "serif"],
       },
       colors: {
         brand: {
-          50: "#fef7f3",
-          100: "#fdeee6",
-          200: "#fbd9c8",
-          300: "#f8bda0",
-          400: "#f49a6e",
-          500: "#f0753a",
-          600: "#e55a1f",
-          700: "#c0441a",
-          800: "#9a371b",
-          900: "#7d301a"
+          50: "#faf8f6",
+          100: "#f5f1ed",
+          200: "#ede6de",
+          300: "#e0d4c7",
+          400: "#d1bfa8",
+          500: "#b8956a",
+          600: "#a68b5b",
+          700: "#9d7f4f",
+          800: "#8a6f42",
+          900: "#735d37"
         },
         primary: {
-          50: "#fef7f3",
-          100: "#fdeee6",
-          200: "#fbd9c8",
-          300: "#f8bda0",
-          400: "#f49a6e",
-          500: "#f0753a",
-          600: "#e55a1f",
-          700: "#c0441a",
-          800: "#9a371b",
-          900: "#7d301a"
+          50: "#faf8f6",
+          100: "#f5f1ed",
+          200: "#ede6de",
+          300: "#e0d4c7",
+          400: "#d1bfa8",
+          500: "#b8956a",
+          600: "#a68b5b",
+          700: "#9d7f4f",
+          800: "#8a6f42",
+          900: "#735d37"
         },
-        button: "#6D3B07",
-        hero: "#FFCA99",
-        background: "#E0C3A9",
-        ink: "#1f2937",
+        button: "#B8956A",
+        hero: "#F5F3F1",
+        background: "#F8F6F4",
+        ink: "#A68B5B",
         sand: {
-          50: "#faf7f6",
-          100: "#f4eeec",
-          200: "#ece4e2"
+          50: "#faf8f6",
+          100: "#f5f3f1",
+          200: "#f0ede9"
         }
       }
     }

@@ -1,13 +1,13 @@
 // 通用樣式常數
 export const COMMON_STYLES = {
   // 按鈕基礎樣式
-  BUTTON_BASE: "text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-body",
-  
+  BUTTON_BASE: "text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300",
+
   // 圓形按鈕
   CIRCULAR_BUTTON: "w-14 h-14 flex items-center justify-center hover:scale-110",
-  
+
   // 社交按鈕
-  SOCIAL_BUTTON: "group flex items-center space-x-3 text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 font-body",
+  SOCIAL_BUTTON: "group flex items-center space-x-3 text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105",
   
   // 圖標容器
   ICON_CONTAINER: "w-8 h-8 bg-white rounded-full flex items-center justify-center",
@@ -51,18 +51,18 @@ export const COMMON_STYLES = {
   FLEX_COL_CENTER: "flex flex-col items-center justify-center",
   
   // 背景
-  BACKGROUND_PRIMARY: "bg-[#E0C3A9]",
-  BACKGROUND_SECONDARY: "bg-[#876D5A]",
-  BACKGROUND_ACCENT: "bg-[#f0753a]",
-  
+  BACKGROUND_PRIMARY: "bg-[#F8F6F4]",
+  BACKGROUND_SECONDARY: "bg-[#B8956A]",
+  BACKGROUND_ACCENT: "bg-[#9D7F4F]",
+
   // 文字顏色
-  TEXT_PRIMARY: "text-[#1f2937]",
-  TEXT_SECONDARY: "text-[#6B7280]",
-  TEXT_ACCENT: "text-[#f0753a]",
-  
+  TEXT_PRIMARY: "text-[#A68B5B]",
+  TEXT_SECONDARY: "text-[#B8956A]",
+  TEXT_ACCENT: "text-[#9D7F4F]",
+
   // 邊框
-  BORDER_PRIMARY: "border-[#876D5A]",
-  BORDER_ACCENT: "border-[#f0753a]",
+  BORDER_PRIMARY: "border-[#B8956A]",
+  BORDER_ACCENT: "border-[#9D7F4F]",
   
   // 圓角
   ROUNDED_SM: "rounded-md",
@@ -121,24 +121,24 @@ export const SPACING = {
 // 顏色常數
 export const COLORS = {
   PRIMARY: {
-    50: "#fef7f3",
-    100: "#fdeee6",
-    200: "#fbd9c8",
-    300: "#f8bda0",
-    400: "#f49a6e",
-    500: "#f0753a",
-    600: "#e55a1f",
-    700: "#c0441a",
-    800: "#9a371b",
-    900: "#7d301a"
+    50: "#faf8f6",
+    100: "#f5f1ed",
+    200: "#ede6de",
+    300: "#e0d4c7",
+    400: "#d1bfa8",
+    500: "#b8956a",
+    600: "#a68b5b",
+    700: "#9d7f4f",
+    800: "#8a6f42",
+    900: "#735d37"
   },
-  BACKGROUND: "#E0C3A9",
-  BUTTON: "#6D3B07",
-  HERO: "#FFCA99",
-  INK: "#1f2937",
+  BACKGROUND: "#F8F6F4",
+  BUTTON: "#B8956A",
+  HERO: "#F5F3F1",
+  INK: "#A68B5B",
   SAND: {
-    50: "#faf7f6",
-    100: "#f4eeec",
-    200: "#ece4e2"
+    50: "#faf8f6",
+    100: "#f5f3f1",
+    200: "#f0ede9"
   }
 };

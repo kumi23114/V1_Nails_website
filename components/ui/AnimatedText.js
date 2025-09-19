@@ -110,15 +110,17 @@ export default function AnimatedText({
 }
 
 // 標題動畫組件
-export function AnimatedTitle({ children, className = "", noShadow = false, ...props }) {
+export function AnimatedTitle({ children, className = "", noShadow = false, language = 'zh', ...props }) {
   const shadowStyle = noShadow ? {} : {
     textShadow: '3px 3px 8px rgba(0, 0, 0, 0.4), 1px 1px 4px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 0, 0, 0.2)',
     filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))'
   };
-  
+
+  const fontClass = language === 'zh' ? 'font-chinese' : 'font-display';
+
   return (
-    <AnimatedText 
-      className={`text-3xl md:text-5xl font-semibold tracking-tight font-display ${className}`}
+    <AnimatedText
+      className={`text-3xl md:text-5xl font-semibold tracking-tight ${fontClass} ${className}`}
       y={60}
       duration={1}
       stagger={0.3}

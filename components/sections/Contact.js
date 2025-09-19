@@ -1,14 +1,18 @@
 import { MapPinIcon, PhoneIcon, EnvelopeIcon, ClockIcon } from "@heroicons/react/24/outline";
-import { 
-  ScrollTriggerContainer, 
-  AnimatedTitle, 
-  AnimatedSubtitle, 
+import {
+  ScrollTriggerContainer,
+  AnimatedTitle,
+  AnimatedSubtitle,
   AnimatedContent,
   AnimatedCard,
   AnimatedGrid
 } from "../ui/UnifiedScrollAnimation";
+import { useLanguage } from "../../contexts/LanguageContext";
+import { site } from "../../data/content";
 
 export default function Contact() {
+  const { language } = useLanguage();
+  const { location } = site[language];
   return (
     <section id="contact" className="container-responsive py-6">
       <ScrollTriggerContainer 
@@ -35,7 +39,7 @@ export default function Contact() {
           customDelay={0.2}
           className="bg-white rounded-2xl p-8 shadow-lg mb-12"
         >
-          <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center font-display">聯絡資訊</h3>
+          <h3 className={`text-2xl font-bold text-gray-800 mb-6 text-center ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>聯絡資訊</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* 地址 */}
@@ -45,15 +49,16 @@ export default function Contact() {
               hoverEffect={false}
             >
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-[#876D5A] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#B8956A] rounded-full flex items-center justify-center">
                   <MapPinIcon className="w-6 h-6 text-white" />
                 </div>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-2 font-display">店家地址</h4>
-                <p className="text-gray-600 leading-relaxed font-body">
-                  110台北市信義區市府路1號<br />
-                  <span className="text-sm text-gray-500 font-body">近捷運市政府站</span>
+                <h4 className={`text-lg font-semibold text-gray-800 mb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
+                  {language === 'zh' ? '店家地址' : 'Address'}
+                </h4>
+                <p className={`text-gray-600 leading-relaxed ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
+                  {location.address}
                 </p>
               </div>
             </AnimatedCard>
@@ -65,15 +70,17 @@ export default function Contact() {
               hoverEffect={false}
             >
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-[#876D5A] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#B8956A] rounded-full flex items-center justify-center">
                   <PhoneIcon className="w-6 h-6 text-white" />
                 </div>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-2 font-display">預約電話</h4>
-                <p className="text-gray-600 font-body">
-                  <a href="tel:+886-2-2345-6789" className="hover:text-[#876D5A] transition-colors">
-                    02-2345-6789
+                <h4 className={`text-lg font-semibold text-gray-800 mb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
+                  {language === 'zh' ? '預約電話' : 'Phone'}
+                </h4>
+                <p className={`text-gray-600 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
+                  <a href={`tel:+886-${location.phone?.replace(/\s/g, '')}`} className="hover:text-[#B8956A] transition-colors">
+                    {location.phone}
                   </a>
                 </p>
               </div>
@@ -86,16 +93,19 @@ export default function Contact() {
               hoverEffect={false}
             >
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-[#876D5A] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#B8956A] rounded-full flex items-center justify-center">
                   <ClockIcon className="w-6 h-6 text-white" />
                 </div>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-2 font-display">營業時間</h4>
-                <div className="text-gray-600 space-y-1 font-body">
-                  <p>週一至週五：10:00 - 20:00</p>
-                  <p>週六至週日：10:00 - 18:00</p>
-                  <p className="text-sm text-gray-500">國定假日營業時間請來電確認</p>
+                <h4 className={`text-lg font-semibold text-gray-800 mb-2 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
+                  {language === 'zh' ? '營業時間' : 'Business Hours'}
+                </h4>
+                <div className={`text-gray-600 space-y-1 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
+                  <p>{location.hours}</p>
+                  <p className="text-sm text-gray-500">
+                    {language === 'zh' ? '請提前預約，避免撲空' : 'Please make an appointment in advance'}
+                  </p>
                 </div>
               </div>
             </AnimatedCard>
@@ -107,14 +117,14 @@ export default function Contact() {
               hoverEffect={false}
             >
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-[#876D5A] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#B8956A] rounded-full flex items-center justify-center">
                   <EnvelopeIcon className="w-6 h-6 text-white" />
                 </div>
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-gray-800 mb-2 font-display">電子郵件</h4>
                 <p className="text-gray-600 font-body">
-                  <a href="mailto:info@nailstudio.com" className="hover:text-[#876D5A] transition-colors">
+                  <a href="mailto:info@nailstudio.com" className="hover:text-[#B8956A] transition-colors">
                     info@nailstudio.com
                   </a>
                 </p>
@@ -147,11 +157,11 @@ export default function Contact() {
               className="text-center p-4 bg-transparent shadow-none border-none"
               hoverEffect={false}
             >
-              <div className="w-16 h-16 bg-[#876D5A] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#B8956A] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold font-body">1</span>
               </div>
-              <h4 className="font-semibold text-gray-800 mb-2 font-display">提前預約</h4>
-              <p className="text-gray-600 text-sm font-body">建議提前24小時預約，確保服務品質</p>
+              <h4 className="font-semibold text-gray-800 mb-2 font-display">預約準備</h4>
+              <p className="text-gray-600 text-sm font-body">可傳圖報價或告知預算討論，新客需付訂金500元</p>
             </AnimatedCard>
 
             <AnimatedCard 
@@ -159,11 +169,11 @@ export default function Contact() {
               className="text-center p-4 bg-transparent shadow-none border-none"
               hoverEffect={false}
             >
-              <div className="w-16 h-16 bg-[#876D5A] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#B8956A] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold font-body">2</span>
               </div>
-              <h4 className="font-semibold text-gray-800 mb-2 font-display">準時到店</h4>
-              <p className="text-gray-600 text-sm font-body">請準時到店，遲到可能影響服務時間</p>
+              <h4 className="font-semibold text-gray-800 mb-2 font-display">工作室環境</h4>
+              <p className="text-gray-600 text-sm font-body">個人工作室不開放攜伴，有貓咪出沒請注意</p>
             </AnimatedCard>
 
             <AnimatedCard 
@@ -171,11 +181,11 @@ export default function Contact() {
               className="text-center p-4 bg-transparent shadow-none border-none"
               hoverEffect={false}
             >
-              <div className="w-16 h-16 bg-[#876D5A] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#B8956A] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold font-body">3</span>
               </div>
-              <h4 className="font-semibold text-gray-800 mb-2 font-display">取消政策</h4>
-              <p className="text-gray-600 text-sm font-body">如需取消請提前4小時告知，避免影響其他客人</p>
+              <h4 className="font-semibold text-gray-800 mb-2 font-display">時間政策</h4>
+              <p className="text-gray-600 text-sm font-body">預約保留10分鐘，遲到30分鐘改為單色服務</p>
             </AnimatedCard>
           </AnimatedGrid>
         </AnimatedContent>

@@ -99,17 +99,7 @@ export default function Location() {
                 </div>
               </div>
 
-              {/* 交通資訊 */}
-              <div className="bg-white/90 rounded-lg p-5">
-                <h4 className="font-semibold text-gray-900 mb-3 font-display">
-                  {language === 'zh' ? '交通資訊' : 'Transportation'}
-                </h4>
-                <div className="space-y-2 text-sm text-gray-600 font-body">
-                  <p>• {language === 'zh' ? '捷運信義安和站步行 5 分鐘' : '5 min walk from Xinyi Anhe MRT Station'}</p>
-                  <p>• {language === 'zh' ? '公車站牌步行 3 分鐘' : '3 min walk from bus stop'}</p>
-                  <p>• {language === 'zh' ? '附近設有停車場' : 'Parking available nearby'}</p>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 .carouselItem {
-  --items: 17;
+  --items: 11;
   --width: clamp(150px, 30vw, 300px);
   --height: clamp(200px, 40vw, 400px);
   --x: calc(var(--active) * 800%);

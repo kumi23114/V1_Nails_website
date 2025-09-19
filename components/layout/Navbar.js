@@ -19,10 +19,10 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* 品牌標誌 */}
           <div className="flex items-center">
-            <h1 className="text-xl font-semibold text-gray-900 font-display">
+            <h1 className={`text-xl font-semibold text-[#937218] ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
               {currentContent.brand.name}
             </h1>
-            <span className="ml-2 text-sm text-gray-500 hidden sm:block font-body">
+            <span className={`ml-2 text-sm text-[#937218] opacity-70 hidden sm:block ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
               {currentContent.brand.tagline}
             </span>
           </div>
@@ -31,25 +31,25 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#portfolio"
-              className="text-gray-600 hover:text-gray-900 transition-colors font-body"
+              className="text-[#937218] hover:text-[#735d37] transition-colors font-nav"
             >
               {navContent.portfolio}
             </a>
             <a
               href="#services"
-              className="text-gray-600 hover:text-gray-900 transition-colors font-body"
+              className="text-[#937218] hover:text-[#735d37] transition-colors font-nav"
             >
               {navContent.services}
             </a>
             <a
               href="#booking"
-              className="text-gray-600 hover:text-gray-900 transition-colors font-body"
+              className="text-[#937218] hover:text-[#735d37] transition-colors font-nav"
             >
               {navContent.booking}
             </a>
             <a
               href="#location"
-              className="text-gray-600 hover:text-gray-900 transition-colors font-body"
+              className="text-[#937218] hover:text-[#735d37] transition-colors font-nav"
             >
               {navContent.location}
             </a>
@@ -57,7 +57,7 @@ export default function Navbar() {
             {/* 語言切換按鈕 */}
             <button
               onClick={toggleLanguage}
-              className="px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50 transition-colors font-body"
+              className="px-3 py-1 text-sm border border-[#937218] text-[#937218] rounded-md hover:bg-[#937218] hover:text-white transition-colors font-body"
             >
               {language === 'zh' ? 'EN' : '中文'}
             </button>
@@ -66,7 +66,7 @@ export default function Navbar() {
               href={currentContent.location.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="aurora-line text-white px-4 py-2 rounded-lg transition-all duration-300 font-body"
+              className={`aurora-line text-white px-4 py-2 rounded-lg transition-all duration-300 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}
             >
               {navContent.bookNow}
             </a>
@@ -77,7 +77,7 @@ export default function Navbar() {
             {/* 手機版語言切換按鈕 */}
             <button
               onClick={toggleLanguage}
-              className="px-2 py-1 text-xs border border-gray-300 rounded-md hover:bg-gray-50 transition-colors font-body"
+              className="px-2 py-1 text-xs border border-[#937218] text-[#937218] rounded-md hover:bg-[#937218] hover:text-white transition-colors font-body"
             >
               {language === 'zh' ? 'EN' : '中文'}
             </button>
@@ -96,37 +96,37 @@ export default function Navbar() {
         <div className={`md:hidden menu ${isMenuOpen ? 'on' : ''}`} id="menu">
           <ul>
             <li>
-              <a 
-                href="#portfolio" 
+              <a
+                href="#portfolio"
                 onClick={() => setIsMenuOpen(false)}
-                className="menu-link font-body"
+                className="menu-link font-nav"
               >
                 {navContent.portfolio}
               </a>
             </li>
             <li>
-              <a 
-                href="#services" 
+              <a
+                href="#services"
                 onClick={() => setIsMenuOpen(false)}
-                className="menu-link font-body"
+                className="menu-link font-nav"
               >
                 {navContent.services}
               </a>
             </li>
             <li>
-              <a 
-                href="#booking" 
+              <a
+                href="#booking"
                 onClick={() => setIsMenuOpen(false)}
-                className="menu-link font-body"
+                className="menu-link font-nav"
               >
                 {navContent.booking}
               </a>
             </li>
             <li>
-              <a 
-                href="#location" 
+              <a
+                href="#location"
                 onClick={() => setIsMenuOpen(false)}
-                className="menu-link font-body"
+                className="menu-link font-nav"
               >
                 {navContent.location}
               </a>
@@ -207,14 +207,14 @@ export default function Navbar() {
           top: 100%;
           left: 0;
           right: 0;
-          color: #6D3B07;
+          color: #A68B5B;
           width: 100%;
           padding: 20px;
           margin: 0;
           font-family: inherit;
           text-align: center;
           border-radius: 0 0 8px 8px;
-          background: #E0C3A9;
+          background: #F8F6F4;
           box-shadow: 0 4px 12px rgba(0,0,0,0.1);
           opacity: 0;
           visibility: hidden;
@@ -238,7 +238,7 @@ export default function Navbar() {
           display: block;
           border-left: 8px solid transparent;
           border-right: 8px solid transparent;
-          border-bottom: 8px solid #E0C3A9;
+          border-bottom: 8px solid #F8F6F4;
         }
 
         .menu ul {
@@ -255,7 +255,7 @@ export default function Navbar() {
         .menu-link {
           display: block;
           padding: 12px 16px;
-          color: #6D3B07;
+          color: #937218;
           text-decoration: none;
           transition: all 0.2s;
           border-radius: 6px;
@@ -265,19 +265,19 @@ export default function Navbar() {
 
         .menu-link:hover,
         .menu-link:focus {
-          background: #D4B89A;
-          color: #6D3B07;
+          background: #F5F3F1;
+          color: #735d37;
           transform: translateX(4px);
         }
 
         .menu-link.special {
-          background: #6D3B07;
+          background: #B8956A;
           color: white;
           font-weight: 600;
         }
 
         .menu-link.special:hover {
-          background: #5A2F05;
+          background: #9D7F4F;
           transform: translateX(4px);
         }
       `}</style>

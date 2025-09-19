@@ -1,5 +1,6 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
+import { useLanguage } from "../../contexts/LanguageContext";
 
 // 行動版檢測 hook
 const useMobileDetection = () => {
@@ -249,19 +250,24 @@ export const ScrollTriggerContainer = ({
 };
 
 // 標題動畫組件
-export const AnimatedTitle = ({ 
-  children, 
-  className = "", 
+export const AnimatedTitle = ({
+  children,
+  className = "",
   customDelay = 0,
   enableGlow = true,
-  animationType = "title"
+  animationType = "title",
+  style = {}
 }) => {
   const isMobile = useMobileDetection();
-  
+  const { language } = useLanguage();
+
   const glowStyle = enableGlow ? {
     filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.3))',
     textShadow: '0 0 30px rgba(255, 255, 255, 0.2)'
   } : {};
+
+  // 合併 glow 樣式和自定義樣式
+  const combinedStyle = { ...glowStyle, ...style };
 
   const getVariants = () => {
     switch (animationType) {
@@ -279,8 +285,9 @@ export const AnimatedTitle = ({
 
   // 檢查是否傳入了自定義樣式，如果沒有則使用預設樣式
   const hasCustomStyles = className.includes('text-') || className.includes('font-') || className.includes('mb-') || className.includes('mt-');
-  
-  const defaultStyles = hasCustomStyles ? "" : "text-3xl font-bold text-center mb-6 font-display";
+
+  const fontClass = language === 'zh' ? 'font-chinese' : 'font-display';
+  const defaultStyles = hasCustomStyles ? "" : `text-3xl font-bold text-center mb-6 ${fontClass}`;
   const finalClassName = `${defaultStyles} ${className}`.trim();
 
   return (
@@ -288,7 +295,7 @@ export const AnimatedTitle = ({
       className={finalClassName}
       variants={getVariants()}
       custom={customDelay}
-      style={glowStyle}
+      style={combinedStyle}
       whileHover={!isMobile ? {
         scale: 1.05,
         transition: { duration: 0.3 }
@@ -300,12 +307,16 @@ export const AnimatedTitle = ({
 };
 
 // 副標題動畫組件
-export const AnimatedSubtitle = ({ 
-  children, 
-  className = "", 
+export const AnimatedSubtitle = ({
+  children,
+  className = "",
   customDelay = 0.1,
-  animationType = "content"
+  animationType = "content",
+  style = {},
+  ...props
 }) => {
+  const { language } = useLanguage();
+
   const getVariants = () => {
     switch (animationType) {
       case "slideInLeft":
@@ -322,8 +333,9 @@ export const AnimatedSubtitle = ({
 
   // 檢查是否傳入了自定義樣式，如果沒有則使用預設樣式
   const hasCustomStyles = className.includes('text-') || className.includes('font-') || className.includes('mb-') || className.includes('mt-') || className.includes('max-w-');
-  
-  const defaultStyles = hasCustomStyles ? "" : "text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto font-body font-medium";
+
+  const fontClass = language === 'zh' ? 'font-chinese' : 'font-body';
+  const defaultStyles = hasCustomStyles ? "" : `text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto ${fontClass} font-medium`;
   const finalClassName = `${defaultStyles} ${className}`.trim();
 
   return (
@@ -331,6 +343,8 @@ export const AnimatedSubtitle = ({
       className={finalClassName}
       variants={getVariants()}
       custom={customDelay}
+      style={style}
+      {...props}
     >
       {children}
     </motion.p>
