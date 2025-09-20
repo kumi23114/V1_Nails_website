@@ -2,6 +2,7 @@ import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useLanguage } from "../../contexts/LanguageContext";
 import { useMobileDetection } from "../../hooks/useMobileDetection";
+import { hoverVariants } from "../../utils/animationVariants";
 
 // 優雅的浮現動畫變體
 const fadeUpVariants = {
@@ -25,64 +26,60 @@ const fadeUpVariants = {
   },
 };
 
-// 標題專用動畫變體
+// 標題專用動畫變體 - 帶有高級朦朧效果
 const titleVariants = {
   hidden: {
     opacity: 0,
-    y: 60,
-    scale: 0.95,
-    filter: "blur(3px)", // 輕微的高斯模糊
+    y: 30,                    // 減少移動距離
+    scale: 0.97,              // 減少縮放幅度
+    filter: "blur(6px)",      // 增加高斯模糊營造朦朧感
   },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    filter: "blur(0px)", // 清除模糊
+    filter: "blur(0px)",      // 清除模糊，呈現清晰效果
     transition: {
-      duration: 1,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      duration: 0.8,          // 延長時間讓模糊到清晰的過程更優雅
+      ease: [0.25, 0.1, 0.25, 1.0], // 使用溫和的緩動
     },
   },
 };
 
-// 小卡專用動畫變體
+// 小卡專用動畫變體 - 從右到左優雅滑入，帶有高級朦朧效果
 const cardVariants = {
   hidden: {
     opacity: 0,
-    y: 50,
-    scale: 0.8,
-    rotateY: -10,
-    filter: "blur(5px)", // 適中的高斯模糊
+    x: 80,                    // 增加移動幅度，從更遠的右側開始
+    filter: "blur(8px)",      // 添加高斯模糊營造朦朧感
   },
   visible: {
     opacity: 1,
-    y: 0,
-    scale: 1,
-    rotateY: 0,
-    filter: "blur(0px)", // 清除模糊
+    x: 0,                     // 滑入到正常位置
+    filter: "blur(0px)",      // 清除模糊，呈現清晰效果
     transition: {
-      duration: 0.7,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      duration: 0.8,          // 稍微延長時間讓模糊到清晰的過程更優雅
+      ease: [0.25, 0.1, 0.25, 1.0], // 使用溫和的緩動函數
     },
   },
 };
 
-// 內容專用動畫變體
+// 內容專用動畫變體 - 帶有高級朦朧效果
 const contentVariants = {
   hidden: {
     opacity: 0,
-    y: 40,
-    scale: 0.9,
-    filter: "blur(3px)", // 輕微的高斯模糊
+    y: 15,                    // 減少移動距離
+    scale: 0.96,              // 減少縮放幅度
+    filter: "blur(4px)",      // 增加高斯模糊營造朦朧感
   },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    filter: "blur(0px)", // 清除模糊
+    filter: "blur(0px)",      // 清除模糊，呈現清晰效果
     transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      duration: 0.6,          // 延長時間讓模糊到清晰的過程更優雅
+      ease: [0.25, 0.1, 0.25, 1.0], // 使用溫和的緩動
     },
   },
 };
@@ -159,16 +156,16 @@ export const ScrollTriggerContainer = ({
 }) => {
   const ref = useRef(null);
   const isMobile = useMobileDetection();
-  // 優化觸發參數 - 保持進入觸發，延遲消失觸發
-  const desktopViewportMargin = "-100px 0px -200px 0px"; // 桌面版：進入-100px，消失-200px
-  const mobileViewportMargin = "-50px 0px -100px 0px"; // 手機版：進入-50px，消失-100px
-  const desktopAmount = 0.05; // 桌面版降低觸發閾值
-  const mobileAmount = 0.02; // 手機版更低的觸發閾值
+  // 優化觸發參數 - 更早觸發，一次觸發後保持可見
+  const desktopViewportMargin = "-150px"; // 桌面版：元素進入視窗前150px觸發
+  const mobileViewportMargin = "-80px"; // 手機版：元素進入視窗前80px觸發
+  const desktopAmount = 0.1; // 桌面版觸發閾值
+  const mobileAmount = 0.05; // 手機版觸發閾值
   
-  const isInView = useInView(ref, { 
-    once: false, // 允許重複觸發
+  const isInView = useInView(ref, {
+    once: true, // 改為只觸發一次，避免過早消失
     margin: isMobile ? mobileViewportMargin : desktopViewportMargin,
-    amount: isMobile ? mobileAmount : desktopAmount 
+    amount: isMobile ? mobileAmount : desktopAmount
   });
 
   // 調試信息
@@ -209,19 +206,18 @@ export const ScrollTriggerContainer = ({
       className={className}
       style={{ y }}
       variants={{
-        hidden: { 
+        hidden: {
           opacity: 0,
-          y: isMobile ? 15 : 80, // 手機版減少移動距離
-          filter: "blur(3px)" // 輕微的高斯模糊
+          y: isMobile ? 10 : 30, // 減少移動距離，更流暢
         },
         visible: {
           opacity: 1,
           y: 0,
-          filter: "blur(0px)", // 清除模糊
           transition: {
-            duration: isMobile ? mobileAnimationDuration : 1.0, // 增加桌面版動畫時間
+            duration: isMobile ? mobileAnimationDuration : 0.6, // 縮短桌面版動畫時間
             staggerChildren: isMobile ? mobileStaggerDelay : staggerDelay,
-            delayChildren: isMobile ? 0.05 : 0.2,
+            delayChildren: isMobile ? 0.02 : 0.1, // 減少延遲時間
+            ease: [0.4, 0.0, 0.2, 1.0], // 使用更流暢的緩動
           },
         },
       }}
@@ -347,11 +343,7 @@ export const AnimatedCard = ({
 }) => {
   const isMobile = useMobileDetection();
 
-  const defaultHoverEffect = hoverEffect ? {
-    scale: 1.05,
-    y: -10,
-    transition: { duration: 0.3, ease: "easeOut" }
-  } : {};
+  const defaultHoverEffect = hoverEffect ? hoverVariants.card : {};
 
   const getVariants = () => {
     switch (animationType) {

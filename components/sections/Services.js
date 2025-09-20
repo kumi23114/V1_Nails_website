@@ -1,12 +1,11 @@
 import { site } from "../../data/content";
 import { useLanguage } from "../../contexts/LanguageContext";
-import { 
-  ScrollTriggerContainer, 
-  AnimatedTitle, 
-  AnimatedSubtitle, 
-  AnimatedCard, 
-  AnimatedContent, 
-  AnimatedGrid 
+import {
+  ScrollTriggerContainer,
+  AnimatedTitle,
+  AnimatedSubtitle,
+  AnimatedCard,
+  AnimatedContent
 } from "../ui/UnifiedScrollAnimation";
 
 export default function Services() {
@@ -50,59 +49,67 @@ export default function Services() {
                 {category.name}
               </h3>
 
-              {/* 服務項目網格 */}
-              <AnimatedGrid
-                columns={category.items.length === 4 ? 2 : (category.items.length <= 2 ? 2 : 3)}
-                staggerDelay={0.1}
-                itemAnimationType="card"
-                className="mb-6"
-              >
+              {/* 服務項目網格 - 每個項目獨立觸發動畫 */}
+              <div className={`grid gap-6 md:gap-8 mb-6 ${
+                category.items.length === 4
+                  ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4'
+                  : category.items.length <= 2
+                    ? 'grid-cols-1 sm:grid-cols-2'
+                    : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
+              }`}>
                 {category.items.map((item, itemIndex) => (
-                  <AnimatedCard
+                  <ScrollTriggerContainer
                     key={itemIndex}
-                    customDelay={itemIndex * 0.1}
-                    hoverEffect={true}
+                    staggerDelay={0}
                     animationType="card"
-                    className="min-h-[180px] flex flex-col justify-center text-center p-4"
+                    viewportMargin="-80px"
+                    className="min-h-[180px]"
                   >
-                    <h4 className={`text-lg font-bold text-gray-900 mb-3 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
-                      {item.name}
-                    </h4>
+                    <AnimatedCard
+                      customDelay={0}
+                      hoverEffect={true}
+                      animationType="card"
+                      className="min-h-[180px] flex flex-col justify-center text-center p-4 h-full"
+                    >
+                      <h4 className={`text-lg font-bold text-gray-900 mb-3 ${language === 'zh' ? 'font-chinese' : 'font-display'}`}>
+                        {item.name}
+                      </h4>
 
-                    {/* 價格顯示 */}
-                    <div className="mb-3">
-                      {item.price ? (
-                        <div className={`text-2xl font-bold text-button ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
-                          NT$ {item.price.toLocaleString()}
-                        </div>
-                      ) : (
-                        <div className="space-y-1">
-                          <div className={`text-lg font-bold text-button ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
-                            手部 NT$ {item.handPrice.toLocaleString()}
+                      {/* 價格顯示 */}
+                      <div className="mb-3">
+                        {item.price ? (
+                          <div className={`text-2xl font-bold text-button ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
+                            NT$ {item.price.toLocaleString()}
                           </div>
-                          {item.footPrice && (
+                        ) : (
+                          <div className="space-y-1">
                             <div className={`text-lg font-bold text-button ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
-                              足部 NT$ {item.footPrice.toLocaleString()}
+                              手部 NT$ {item.handPrice.toLocaleString()}
                             </div>
-                          )}
-                          {item.note && (
-                            <div className={`text-xs text-gray-500 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
-                              {item.note}
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
+                            {item.footPrice && (
+                              <div className={`text-lg font-bold text-button ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
+                                足部 NT$ {item.footPrice.toLocaleString()}
+                              </div>
+                            )}
+                            {item.note && (
+                              <div className={`text-xs text-gray-500 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
+                                {item.note}
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
 
-                    {/* 只有基礎保養區塊顯示說明文字 */}
-                    {category.name === '基礎保養' || category.name === 'Basic Care' ? (
-                      <p className={`text-gray-600 text-sm leading-relaxed ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
-                        {item.desc}
-                      </p>
-                    ) : null}
-                  </AnimatedCard>
+                      {/* 只有基礎保養區塊顯示說明文字 */}
+                      {category.name === '基礎保養' || category.name === 'Basic Care' ? (
+                        <p className={`text-gray-600 text-sm leading-relaxed ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
+                          {item.desc}
+                        </p>
+                      ) : null}
+                    </AnimatedCard>
+                  </ScrollTriggerContainer>
                 ))}
-              </AnimatedGrid>
+              </div>
 
               {/* 分類說明 */}
               {category.notes && category.notes.length > 0 && (

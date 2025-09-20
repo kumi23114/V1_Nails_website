@@ -31,25 +31,25 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#portfolio"
-              className="text-[#937218] hover:text-[#735d37] transition-colors font-nav"
+              className="nav-link text-[#937218] hover:text-[#735d37] transition-all duration-300 font-nav relative"
             >
               {navContent.portfolio}
             </a>
             <a
               href="#services"
-              className="text-[#937218] hover:text-[#735d37] transition-colors font-nav"
+              className="nav-link text-[#937218] hover:text-[#735d37] transition-all duration-300 font-nav relative"
             >
               {navContent.services}
             </a>
             <a
               href="#booking"
-              className="text-[#937218] hover:text-[#735d37] transition-colors font-nav"
+              className="nav-link text-[#937218] hover:text-[#735d37] transition-all duration-300 font-nav relative"
             >
               {navContent.booking}
             </a>
             <a
               href="#location"
-              className="text-[#937218] hover:text-[#735d37] transition-colors font-nav"
+              className="nav-link text-[#937218] hover:text-[#735d37] transition-all duration-300 font-nav relative"
             >
               {navContent.location}
             </a>
@@ -146,8 +146,36 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 漢堡菜單樣式 */}
+      {/* 導航和漢堡菜單樣式 */}
       <style jsx>{`
+        /* 桌面版導航hover底線效果 */
+        .nav-link {
+          position: relative;
+          padding-bottom: 4px;
+        }
+
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #B8956A 0%, #937218 50%, #735d37 100%);
+          transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+          transform: translateX(-50%);
+          border-radius: 1px;
+          box-shadow: 0 2px 8px rgba(184, 149, 106, 0.3);
+        }
+
+        .nav-link:hover::after {
+          width: 100%;
+          box-shadow: 0 2px 12px rgba(184, 149, 106, 0.5);
+        }
+
+        .nav-link:hover {
+          transform: translateY(-1px);
+        }
         /* 漢堡菜單按鈕樣式 */
         .toggle {
           display: block;
