@@ -70,18 +70,12 @@ export const isConsentExpired = (monthsValid = 12) => {
 
 /**
  * 初始化 Google Analytics 同意模式
+ * 注意：預設同意狀態已在 _document.js 中設置，這裡只處理現有同意狀態
  */
 export const initializeGAConsent = () => {
   if (typeof window === 'undefined' || !window.gtag) return;
-  
-  // 設置預設同意狀態為拒絕
-  window.gtag('consent', 'default', {
-    analytics_storage: 'denied',
-    ad_storage: 'denied',
-    wait_for_update: 500
-  });
-  
-  // 檢查現有同意狀態
+
+  // 檢查現有同意狀態並更新
   const consent = getCookieConsent();
   if (consent === true) {
     window.gtag('consent', 'update', {
