@@ -46,6 +46,29 @@ export default function Document() {
           }}
         />
 
+        {/* Google Analytics 4 - 傳統腳本（支援靜態導出）*/}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                    page_title: document.title,
+                    page_location: window.location.href,
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
+
         {/* 網站驗證（如果需要的話，可以後續添加）*/}
         {/* <meta name="google-site-verification" content="your-verification-code" /> */}
         {/* <meta name="msvalidate.01" content="your-bing-verification-code" /> */}
