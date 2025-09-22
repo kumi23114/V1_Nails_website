@@ -1,9 +1,11 @@
 import PortfolioCarousel from "../ui/PortfolioCarousel";
 import { site } from "../../data/content";
 import { useLanguage } from "../../contexts/LanguageContext";
-import { 
-  ScrollTriggerContainer, 
-  AnimatedTitle, 
+import { trackEvent } from "../../utils/analytics";
+import { useEffect } from "react";
+import {
+  ScrollTriggerContainer,
+  AnimatedTitle,
   AnimatedSubtitle,
   AnimatedContent
 } from "../ui/UnifiedScrollAnimation";
@@ -11,6 +13,28 @@ import {
 export default function Portfolio() {
   const { language } = useLanguage();
   const { portfolio } = site[language];
+
+  // 追蹤作品集瀏覽
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            trackEvent('view_portfolio', 'engagement', 'portfolio_section');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    const portfolioElement = document.getElementById('portfolio');
+    if (portfolioElement) {
+      observer.observe(portfolioElement);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   
   return (
     <section id="portfolio" className="pt-4 pb-10 md:py-10 bg-gradient-to-br from-brown-50 to-brown-100 relative">

@@ -16,7 +16,7 @@ export const site = {
       subtitle: "精選美甲作品展示",
       items: [
         { src: "/images/nail_work_3976.jpg", alt: "美甲作品 - 精緻設計" },
-        { src: "/images/nail_work_3993.JPG", alt: "美甲作品 - 優雅風格" },
+        { src: "/images/nail_work_3993.jpg", alt: "美甲作品 - 優雅風格" },
         { src: "/images/nail_work_4402.jpg", alt: "美甲作品 - 時尚造型" },
         { src: "/images/nail_work_4405.jpg", alt: "美甲作品 - 細膩工藝" },
         { src: "/images/nail_work_6026.jpg", alt: "美甲作品 - 創意設計" },
@@ -24,7 +24,7 @@ export const site = {
         { src: "/images/nail_work_8232.jpg", alt: "美甲作品 - 藝術美感" },
         { src: "/images/nail_work_8402.jpg", alt: "美甲作品 - 個性風格" },
         { src: "/images/nail_work_8560.jpg", alt: "美甲作品 - 精美細節" },
-        { src: "/images/nail_work_8574.JPG", alt: "美甲作品 - 完美呈現" },
+        { src: "/images/nail_work_8574.jpg", alt: "美甲作品 - 完美呈現" },
         { src: "/images/nail_work_8623.jpg", alt: "美甲作品 - 質感設計" }
       ],
     },
@@ -232,7 +232,7 @@ export const site = {
       subtitle: "Featured Nail Art Works",
       items: [
         { src: "/images/nail_work_3976.jpg", alt: "Nail Art - Exquisite Design" },
-        { src: "/images/nail_work_3993.JPG", alt: "Nail Art - Elegant Style" },
+        { src: "/images/nail_work_3993.jpg", alt: "Nail Art - Elegant Style" },
         { src: "/images/nail_work_4402.jpg", alt: "Nail Art - Fashion Look" },
         { src: "/images/nail_work_4405.jpg", alt: "Nail Art - Delicate Craft" },
         { src: "/images/nail_work_6026.jpg", alt: "Nail Art - Creative Design" },
@@ -240,7 +240,7 @@ export const site = {
         { src: "/images/nail_work_8232.jpg", alt: "Nail Art - Artistic Beauty" },
         { src: "/images/nail_work_8402.jpg", alt: "Nail Art - Personal Style" },
         { src: "/images/nail_work_8560.jpg", alt: "Nail Art - Fine Details" },
-        { src: "/images/nail_work_8574.JPG", alt: "Nail Art - Perfect Presentation" },
+        { src: "/images/nail_work_8574.jpg", alt: "Nail Art - Perfect Presentation" },
         { src: "/images/nail_work_8623.jpg", alt: "Nail Art - Quality Design" }
       ],
     },
@@ -439,7 +439,7 @@ export const site_legacy = {
   portfolio: {
     items: [
       { src: "/images/nail_work_3976.jpg", alt: "美甲作品 - 精緻設計" },
-      { src: "/images/nail_work_3993.JPG", alt: "美甲作品 - 優雅風格" },
+      { src: "/images/nail_work_3993.jpg", alt: "美甲作品 - 優雅風格" },
       { src: "/images/nail_work_4402.jpg", alt: "美甲作品 - 時尚造型" },
       { src: "/images/nail_work_4405.jpg", alt: "美甲作品 - 細膩工藝" },
       { src: "/images/nail_work_6026.jpg", alt: "美甲作品 - 創意設計" },
@@ -447,7 +447,7 @@ export const site_legacy = {
       { src: "/images/nail_work_8232.jpg", alt: "美甲作品 - 藝術美感" },
       { src: "/images/nail_work_8402.jpg", alt: "美甲作品 - 個性風格" },
       { src: "/images/nail_work_8560.jpg", alt: "美甲作品 - 精美細節" },
-      { src: "/images/nail_work_8574.JPG", alt: "美甲作品 - 完美呈現" },
+      { src: "/images/nail_work_8574.jpg", alt: "美甲作品 - 完美呈現" },
       { src: "/images/nail_work_8623.jpg", alt: "美甲作品 - 質感設計" }
     ],
   },

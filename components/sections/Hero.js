@@ -11,10 +11,24 @@ const smoothScrollTo = (elementId, offset = -56, duration = 400) => {
     });
   }
 };
+
+// 追蹤預約按鈕點擊
+const handleBookingClick = () => {
+  trackBooking('美甲服務', 'hero_cta');
+  smoothScrollTo("booking");
+};
+
+// 追蹤作品集按鈕點擊
+const handlePortfolioClick = () => {
+  trackEvent('view_portfolio', 'engagement', 'hero_cta');
+  smoothScrollTo("portfolio");
+};
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Button from "../ui/Button";
 import { site } from "../../data/content";
 import { useLanguage } from "../../contexts/LanguageContext";
+import { trackEvent, trackBooking } from "../../utils/analytics";
 import {
   ScrollTriggerContainer,
   AnimatedSubtitle,
@@ -25,12 +39,12 @@ export default function Hero() {
   const { language } = useLanguage();
   const { hero } = site[language];
 
-  // Hero圖片陣列
+  // Hero圖片陣列 - 已優化為 JPG 格式
   const heroImages = [
-    '/images/hero1.png',
-    '/images/hero2.png',
-    '/images/hero3.png',
-    '/images/hero4.png'
+    '/images/hero1.jpg',
+    '/images/hero2.jpg',
+    '/images/hero3.jpg',
+    '/images/hero4.jpg'
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -73,13 +87,17 @@ export default function Hero() {
                         : 'opacity-0 scale-105'
                     }`}
                   >
-                    <img
+                    <Image
                       src={image}
                       alt={language === 'zh' ?
                         `Zero Nails 美甲沙龍環境展示 ${index + 1} - 專業美甲服務空間` :
                         `Zero Nails salon environment showcase ${index + 1} - Professional nail service space`
                       }
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      quality={85}
+                      priority={index === 0} // 第一張圖片優先載入
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 60vw"
                     />
                   </div>
                 ))}
@@ -154,14 +172,14 @@ export default function Hero() {
                   <div className="flex flex-col md:flex-row lg:flex-row gap-3 md:gap-4 w-full max-w-xs md:max-w-none mx-auto lg:mx-0 mt-6 md:mt-8 lg:mt-8 md:justify-center lg:justify-start">
                     <Button
                       as="button"
-                      onClick={() => smoothScrollTo("booking")}
+                      onClick={handleBookingClick}
                       className="shadow-lg font-bold whitespace-nowrap min-w-[120px] md:min-w-auto w-full md:w-auto"
                     >
                       {hero.ctaPrimary}
                     </Button>
                     <Button
                       as="button"
-                      onClick={() => smoothScrollTo("portfolio")}
+                      onClick={handlePortfolioClick}
                       variant="outline"
                       className="border-[#B8956A] text-[#B8956A] hover:bg-[#B8956A] hover:text-white whitespace-nowrap min-w-[120px] md:min-w-auto w-full md:w-auto"
                     >

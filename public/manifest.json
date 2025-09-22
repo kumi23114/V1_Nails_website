@@ -35,9 +35,9 @@
   "categories": ["beauty", "lifestyle", "business"],
   "screenshots": [
     {
-      "src": "/images/hero1.png",
+      "src": "/images/hero1.jpg",
       "sizes": "1200x630",
-      "type": "image/png",
+      "type": "image/jpeg",
       "label": "Zero Nails 美甲沙龍首頁"
     }
   ]

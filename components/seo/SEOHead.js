@@ -1,10 +1,10 @@
 import Head from 'next/head';
 
-export default function SEOHead({ 
-  title, 
-  description, 
-  keywords, 
-  ogImage = '/images/hero1.png',
+export default function SEOHead({
+  title,
+  description,
+  keywords,
+  ogImage = '/images/hero1.jpg',
   ogType = 'website',
   language = 'zh',
   canonicalUrl = 'https://zeronails.com'

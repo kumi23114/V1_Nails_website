@@ -8,11 +8,10 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://widget.simplybook.asia" />
-        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
 
-        {/* 字體載入 */}
+        {/* 字體載入 - 僅載入實際使用的字重 */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
           rel="stylesheet"
         />
         <link
@@ -31,6 +30,21 @@ export default function Document() {
 
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
+
+        {/* Google Analytics 同意模式初始化 - 防止 race condition */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                wait_for_update: 500
+              });
+            `,
+          }}
+        />
 
         {/* 網站驗證（如果需要的話，可以後續添加）*/}
         {/* <meta name="google-site-verification" content="your-verification-code" /> */}

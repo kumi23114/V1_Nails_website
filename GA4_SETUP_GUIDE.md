@@ -10,25 +10,21 @@
 ✅ 整合了 Google Analytics 同意模式
 ✅ 創建了隱私權政策頁面
 
-## 📋 接下來需要做的步驟
+## ✅ GA4 設定已完成！
 
-### 1. 獲取 GA4 測量 ID
+### 已設定的 GA4 測量 ID
 
-1. 前往 [Google Analytics](https://analytics.google.com/)
-2. 登入您的 Google 帳戶
-3. 創建新的 GA4 屬性（如果還沒有的話）
-4. 在「管理」→「資料串流」中找到您的測量 ID
-5. 測量 ID 格式為：`G-XXXXXXXXXX`
+- **GA4 測量 ID**: `G-NBM7N96CQJ`
+- **Google Tag Manager ID**: `GT-NNVDB2QP`
 
-### 2. 設置環境變數
+### 環境變數已設定
 
-1. 打開 `.env.local` 檔案
-2. 將 `G-XXXXXXXXXX` 替換為您的實際測量 ID：
-   ```
-   NEXT_PUBLIC_GA_ID=G-您的實際測量ID
-   ```
+```bash
+NEXT_PUBLIC_GA_ID=G-NBM7N96CQJ
+NEXT_PUBLIC_GTM_ID=GT-NNVDB2QP
+```
 
-### 3. 重新啟動開發伺服器
+### 重新啟動開發伺服器以套用設定
 
 ```bash
 npm run dev

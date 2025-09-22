@@ -33,10 +33,26 @@ import {
 } from "../ui/UnifiedScrollAnimation";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { site } from "../../data/content";
+import { trackContact, trackBooking } from "../../utils/analytics";
 
 export default function Contact() {
   const { language } = useLanguage();
   const { location } = site[language];
+
+  // 追蹤電話點擊
+  const handlePhoneClick = () => {
+    trackContact('phone');
+  };
+
+  // 追蹤郵件點擊
+  const handleEmailClick = () => {
+    trackContact('email');
+  };
+
+  // 追蹤預約按鈕點擊
+  const handleBookingButtonClick = () => {
+    trackBooking('美甲服務', 'contact_section');
+  };
   return (
     <section id="contact" className="container-responsive py-6">
       <ScrollTriggerContainer 
@@ -103,7 +119,11 @@ export default function Contact() {
                   {language === 'zh' ? '預約電話' : 'Phone'}
                 </h4>
                 <p className={`text-gray-600 ${language === 'zh' ? 'font-chinese' : 'font-body'}`}>
-                  <a href={`tel:+886-${location.phone?.replace(/\s/g, '')}`} className="hover:text-[#B8956A] transition-colors">
+                  <a
+                    href={`tel:+886-${location.phone?.replace(/\s/g, '')}`}
+                    className="hover:text-[#B8956A] transition-colors"
+                    onClick={handlePhoneClick}
+                  >
                     {location.phone}
                   </a>
                 </p>
@@ -148,7 +168,11 @@ export default function Contact() {
               <div>
                 <h4 className="text-lg font-semibold text-gray-800 mb-2 font-display">電子郵件</h4>
                 <p className="text-gray-600 font-body">
-                  <a href="mailto:info@nailstudio.com" className="hover:text-[#B8956A] transition-colors">
+                  <a
+                    href="mailto:info@nailstudio.com"
+                    className="hover:text-[#B8956A] transition-colors"
+                    onClick={handleEmailClick}
+                  >
                     info@nailstudio.com
                   </a>
                 </p>
@@ -158,7 +182,10 @@ export default function Contact() {
 
           {/* 預約按鈕 */}
           <div className="text-center mt-8">
-            <button className="aurora-background text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl font-body">
+            <button
+              className="aurora-background text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl font-body"
+              onClick={handleBookingButtonClick}
+            >
               立即預約
             </button>
           </div>
