@@ -39,12 +39,12 @@ export default function Hero() {
   const { language } = useLanguage();
   const { hero } = site[language];
 
-  // Hero圖片陣列 - 已優化為 JPG 格式
+  // Hero圖片陣列
   const heroImages = [
-    '/images/hero1.jpg',
-    '/images/hero2.jpg',
-    '/images/hero3.jpg',
-    '/images/hero4.jpg'
+    '/images/hero1.webp',
+    '/images/studio12.webp',
+    '/images/hero3.webp',
+    '/images/studio13.webp'
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
