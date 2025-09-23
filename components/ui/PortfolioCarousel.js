@@ -131,7 +131,7 @@ export default function PortfolioCarousel() {
   }, [isDown, startX]);
 
   return (
-    <div className="portfolio-carousel-container relative overflow-hidden rounded-[40px] m-5 shadow-2xl font-['Poppins'] md:h-screen h-96 sm:h-[32rem]" style={{background: 'linear-gradient(135deg, #F8F6F4 0%, #F5F3F1 50%, #F0EDE9 100%)'}}>
+    <div className="portfolio-carousel-container relative overflow-hidden rounded-[40px] m-5 shadow-2xl md:h-screen h-96 sm:h-[32rem]" style={{background: 'linear-gradient(135deg, #F8F6F4 0%, #F5F3F1 50%, #F0EDE9 100%)'}}>
       <div className="carousel relative z-10 h-full overflow-hidden rounded-[40px]" ref={carouselRef} style={{ touchAction: 'pan-y' }}>
         {portfolioItems.map((item, index) => (
           <div

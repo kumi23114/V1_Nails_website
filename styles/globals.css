@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: '游明朝体', 'YuMincho', '游明朝', 'Yu Mincho', 'Hiragino Mincho ProN W3', 'HiraMinProN-W3', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'HGS明朝 E', 'MS PMincho', 'Noto Sans TC', serif;
   background-color: #f1f1f1;
   color: #A68B5B;
 }
@@ -20,7 +20,7 @@ body {
 }
 
 .font-chinese {
-  font-family: '游明朝体', 'YuMincho', '游明朝', 'Yu Mincho', 'Hiragino Mincho ProN W3', 'HiraMinProN-W3', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'HGS明朝 E', 'MS PMincho', serif;
+  font-family: '游明朝体', 'YuMincho', '游明朝', 'Yu Mincho', 'Hiragino Mincho ProN W3', 'HiraMinProN-W3', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'HGS明朝 E', 'MS PMincho', 'Noto Sans TC', serif;
   letter-spacing: 0.16em;
 }
 

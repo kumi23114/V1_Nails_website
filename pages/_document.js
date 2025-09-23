@@ -10,10 +10,7 @@ export default function Document() {
         <link rel="dns-prefetch" href="https://widget.simplybook.asia" />
 
         {/* 字體載入 - 僅載入實際使用的字重 */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-          rel="stylesheet"
-        />
+
         <link
           href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital,wght@0,400;1,400&display=swap"
           rel="stylesheet"
@@ -21,6 +18,10 @@ export default function Document() {
 
         {/* 安全性標頭 */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
         <meta httpEquiv="X-Frame-Options" content="DENY" />
         <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
 
