@@ -9,8 +9,8 @@ module.exports = {
     extend: {
       fontFamily: {
         display: ["Sorts Mill Goudy", "serif"],
-        body: ["游明朝体", "YuMincho", "游明朝", "Yu Mincho", "Hiragino Mincho ProN W3", "HiraMinProN-W3", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "HGS明朝 E", "MS PMincho", "Noto Sans TC", "serif"],
-        chinese: ["游明朝体", "YuMincho", "游明朝", "Yu Mincho", "Hiragino Mincho ProN W3", "HiraMinProN-W3", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "HGS明朝 E", "MS PMincho", "Noto Sans TC", "serif"],
+        body: ["游明朝体", "YuMincho", "游明朝", "Yu Mincho", "Hiragino Mincho ProN W3", "HiraMinProN-W3", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "HGS明朝 E", "MS PMincho", "Noto Serif TC", "Noto Sans TC", "serif"],
+        chinese: ["游明朝体", "YuMincho", "游明朝", "Yu Mincho", "Hiragino Mincho ProN W3", "HiraMinProN-W3", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "HGS明朝 E", "MS PMincho", "Noto Serif TC", "Noto Sans TC", "serif"],
         nav: ["Sorts Mill Goudy", "serif"],
       },
       scale: {
