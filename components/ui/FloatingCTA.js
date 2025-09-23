@@ -114,19 +114,7 @@ export default function FloatingCTA() {
             <span className="font-medium">{currentContent.services.external.instagramLabel}</span>
           </Button>
 
-          {/* 預約按鈕 */}
-          <Button
-            as="button"
-            variant="primary"
-            className={COMMON_STYLES.SOCIAL_BUTTON}
-          >
-            <div className={COMMON_STYLES.ICON_CONTAINER}>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <span className="font-medium">{currentContent.nav.bookNow}</span>
-          </Button>
+
         </div>
       )}
     </div>

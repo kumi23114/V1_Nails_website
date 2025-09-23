@@ -131,17 +131,7 @@ export default function Navbar() {
                 {navContent.location}
               </a>
             </li>
-            <li>
-              <a
-                href={currentContent.location.lineUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMenuOpen(false)}
-                className="menu-link special font-body"
-              >
-                {navContent.bookNow}
-              </a>
-            </li>
+
           </ul>
         </div>
       </div>

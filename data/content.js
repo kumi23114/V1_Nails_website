@@ -136,7 +136,7 @@ export const site = {
         }
       ],
       external: {
-        lineLabel: "Line 官方帳號",
+        lineLabel: "LINE 官方帳號",
         lineUrl: "https://line.me/ti/p/@184qgniw",
         instagramLabel: "Instagram",
         instagramUrl: "https://www.instagram.com/zeronail0228"
@@ -210,9 +210,9 @@ export const site = {
     nav: {
       portfolio: "作品集",
       services: "服務項目",
-      booking: "預約",
+      booking: "線上預約",
       location: "位置",
-      bookNow: "立即預約"
+      bookNow: "加入LINE"
     }
   },
   en: {
@@ -558,7 +558,7 @@ export const site_legacy = {
       }
     ],
     external: {
-      lineLabel: "Line 官方帳號",
+      lineLabel: "LINE 官方帳號",
       lineUrl: "https://line.me/ti/p/@184qgniw",
       instagramLabel: "Instagram",
       instagramUrl: "https://www.instagram.com/zeronail0228/"

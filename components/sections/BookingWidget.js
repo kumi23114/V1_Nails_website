@@ -19,6 +19,42 @@ export default function BookingWidget() {
     // 檢查是否已經載入過 script
     const existingScript = document.querySelector('script[src*="widget.simplybook.asia"]');
     
+    // 隱藏cookie橫幅的函數
+    const hideCookieBanners = () => {
+      // 添加CSS來隱藏可能的cookie橫幅
+      const style = document.createElement('style');
+      style.textContent = `
+        /* 隱藏SimplyBook.me的cookie橫幅 */
+        [id*="cookie"], [class*="cookie"], [id*="consent"], [class*="consent"],
+        [id*="gdpr"], [class*="gdpr"], [id*="privacy"], [class*="privacy"],
+        .cookie-banner, .cookie-notice, .cookie-consent, .gdpr-banner,
+        .privacy-notice, .consent-banner, #cookie-banner, #cookie-notice,
+        #cookie-consent, #gdpr-banner, #privacy-notice, #consent-banner {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+          height: 0 !important;
+          overflow: hidden !important;
+        }
+
+        /* 特別針對SimplyBook.me iframe內的cookie橫幅 */
+        #sbw_trlbfj iframe {
+          /* 確保iframe正常顯示 */
+        }
+      `;
+      document.head.appendChild(style);
+
+      // 嘗試直接隱藏頁面上的cookie相關元素
+      const cookieElements = document.querySelectorAll(
+        '[id*="cookie"], [class*="cookie"], [id*="consent"], [class*="consent"], [id*="gdpr"], [class*="gdpr"]'
+      );
+      cookieElements.forEach(element => {
+        if (element.id !== 'sbw_trlbfj' && !element.closest('#sbw_trlbfj')) {
+          element.style.display = 'none';
+        }
+      });
+    };
+
     const initWidget = () => {
       if (window.SimplybookWidget) {
         new window.SimplybookWidget({
@@ -50,7 +86,10 @@ export default function BookingWidget() {
           "app_config": {
             "clear_session": 0,
             "allow_switch_to_ada": 0,
-            "predefined": []
+            "predefined": [],
+            "disable_cookie_banner": 1,
+            "hide_cookie_banner": 1,
+            "cookie_consent": 0
           },
           "container_id": "sbw_trlbfj"
         });
@@ -61,15 +100,20 @@ export default function BookingWidget() {
           if (iframe) {
             // iframe 存在，等待其載入完成
             iframe.onload = () => {
+              // 隱藏可能的cookie橫幅
+              hideCookieBanners();
               // 額外等待 1.5 秒確保內容完全載入
               setTimeout(() => {
                 setIsLoading(false);
+                // 再次嘗試隱藏cookie橫幅
+                hideCookieBanners();
               }, 1500);
             };
 
             // 如果 iframe 已經載入完成（快取情況）
             if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
               setTimeout(() => {
+                hideCookieBanners();
                 setIsLoading(false);
               }, 1500);
             }
@@ -79,8 +123,21 @@ export default function BookingWidget() {
           }
         };
 
+        // 立即嘗試隱藏cookie橫幅
+        hideCookieBanners();
+
         // 開始檢查 widget 載入狀態
         setTimeout(checkWidgetLoaded, 1000);
+
+        // 定期檢查並隱藏cookie橫幅
+        const cookieHideInterval = setInterval(() => {
+          hideCookieBanners();
+        }, 2000);
+
+        // 10秒後停止定期檢查
+        setTimeout(() => {
+          clearInterval(cookieHideInterval);
+        }, 10000);
       }
     };
 
