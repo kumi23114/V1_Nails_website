@@ -44,7 +44,7 @@ export default function Hero() {
     '/images/hero1.webp',
     '/images/studio12.webp',
     '/images/hero3.webp',
-    '/images/studio13.webp'
+    '/images/studio_new1.webp'
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

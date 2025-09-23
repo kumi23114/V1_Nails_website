@@ -17,7 +17,7 @@ export default function Location() {
       id="location"
       className="py-8 relative bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/images/studio13.webp')"
+        backgroundImage: "url('/images/studio_new1.webp')"
       }}
     >
       {/* 黑色遮罩 */}
